@@ -1,0 +1,38 @@
+substitutions:
+  _REGION: us-west1
+  _REPO: cloud-run-source-deploy
+  _SERVICE: gaf-marketing-hub-demo
+
+steps:
+  - name: gcr.io/cloud-builders/docker
+    id: Build
+    args:
+      [
+        "build",
+        "-t",
+        "us-west1-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_SERVICE}:$SHORT_SHA",
+        "."
+      ]
+
+  - name: gcr.io/cloud-builders/docker
+    id: Push
+    args: [ "push", "us-west1-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_SERVICE}:$SHORT_SHA" ]
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: Deploy
+    entrypoint: gcloud
+    args:
+      [
+        "run","deploy","${_SERVICE}",
+        "--image","us-west1-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_SERVICE}:$SHORT_SHA",
+        "--region","${_REGION}",
+        "--platform","managed",
+        "--allow-unauthenticated",
+        "--port","8080"
+      ]
+
+images:
+  - us-west1-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_SERVICE}:$SHORT_SHA
+
+options:
+  logging: CLOUD_LOGGING_ONLY
