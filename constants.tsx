@@ -77,8 +77,8 @@ export const END_USER_CAPABILITIES: Capability[] = [
         title: 'Login & Persona-Driven Personalization',
         description: "This first section focuses on how the storefront personalizes itself for different user personas. The platform uses GAF's Okta SSO — managed through the DG3 integration layer — to determine who the user is, what their role is, and what they should see. This flexibility means the experience meets each user where they are, driving adoption and engagement naturally.",
         videos: [
-            { id: 'video-power-buyer', label: 'Video: Power Buyer Experience', shortLabel: 'Power Buyer', path: '/videos/Welcome to the GAF Marketing Hub! 🚀Power Buyer Persona.mp4' },
-            { id: 'video-certified-contractor', label: 'Video: Certified Contractor Experience', shortLabel: 'Certified Contractor', path: '/videos/Contractor Persona.mp4' }
+            { id: 'video-power-buyer', label: 'Video: Power Buyer Experience', shortLabel: 'Power Buyer', path: '/videos/power-buyer-persona.mp4' },
+            { id: 'video-certified-contractor', label: 'Video: Certified Contractor Experience', shortLabel: 'Certified Contractor', path: '/videos/contractor-persona.mp4' }
         ],
         details: [
             { title: 'Dynamic Promotional Banners', description: "The primary promotional banner at the top of the page changes based on the user's persona (e.g., Certified Contractor).", icon: <ImageIcon /> },
@@ -95,7 +95,7 @@ export const END_USER_CAPABILITIES: Capability[] = [
         title: 'Browsing, Searching & Ordering',
         description: "This next section focuses on how users browse and discover items. The navigation is designed to feel familiar, because when users don't have to learn a new system, they engage more. Whether browsing hundreds of SKUs or searching for one brochure, the experience is designed to guide them to the right content quickly and logically.",
         videos: [
-            { id: 'video-browsing', label: 'Video: Navigating and Filtering for Items', shortLabel: 'Browsing', path: '/videos/Navigating Your GAF Marketing Hub Made Easy! 🚀.mp4' },
+            { id: 'video-browsing', label: 'Video: Navigating and Filtering for Items', shortLabel: 'Browsing', path: '/videos/navigating-hub.mp4' },
             { id: 'video-semantic-search', label: 'Video: Semantic Search for "Leak Protection"', shortLabel: 'Semantic Search' }
         ],
         details: [
