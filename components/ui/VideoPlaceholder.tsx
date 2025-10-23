@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 interface VideoPlaceholderProps {
   label: string;
@@ -8,10 +8,33 @@ interface VideoPlaceholderProps {
 }
 
 export const VideoPlaceholder: React.FC<VideoPlaceholderProps> = ({ label, className = '', videoPath }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const handlePlay = () => {
+      // Pause all other video elements on the page
+      const allVideos = document.querySelectorAll('video');
+      allVideos.forEach((video) => {
+        if (video !== videoRef.current && !video.paused) {
+          video.pause();
+        }
+      });
+    };
+
+    const videoElement = videoRef.current;
+    if (videoElement) {
+      videoElement.addEventListener('play', handlePlay);
+      return () => {
+        videoElement.removeEventListener('play', handlePlay);
+      };
+    }
+  }, []);
+
   if (videoPath) {
     return (
       <div className={`aspect-video w-full rounded-lg overflow-hidden bg-black ${className}`}>
         <video 
+          ref={videoRef}
           key={videoPath}
           controls 
           className="w-full h-full"
@@ -24,19 +47,6 @@ export const VideoPlaceholder: React.FC<VideoPlaceholderProps> = ({ label, class
               errorCode: videoElement.error?.code,
               path: videoPath
             });
-          }}
-          onStalled={() => console.log('Video stalled:', videoPath)}
-          onWaiting={() => console.log('Video waiting for data:', videoPath)}
-          onSuspend={() => console.log('Video loading suspended:', videoPath)}
-          onProgress={(e) => {
-            const videoElement = e.currentTarget as HTMLVideoElement;
-            if (videoElement.buffered.length > 0) {
-              const bufferedEnd = videoElement.buffered.end(videoElement.buffered.length - 1);
-              const duration = videoElement.duration;
-              if (duration > 0) {
-                console.log(`Video buffered: ${((bufferedEnd / duration) * 100).toFixed(1)}%`);
-              }
-            }
           }}
         >
           <source src={videoPath} type="video/mp4" />
