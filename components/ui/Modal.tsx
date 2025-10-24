@@ -37,13 +37,13 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }
         style={{ animationName: 'modal-scale-up', animationDuration: '0.3s', animationTimingFunction: 'ease-out', animationFillMode: 'forwards' }}
       >
         <header className="flex items-center justify-between p-6 border-b border-gray-700 flex-shrink-0">
-          <h2 id="modal-title" className="text-2xl font-bold text-white">{title} - Finer Details</h2>
+          <h2 id="modal-title" className="text-2xl font-bold text-white">{title}</h2>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-white transition-colors p-1 rounded-full bg-gray-700 hover:bg-gray-600"
             aria-label="Close modal"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>

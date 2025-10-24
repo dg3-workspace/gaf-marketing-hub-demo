@@ -9,6 +9,7 @@ export const CapabilityDetailCard: React.FC<CapabilityDetailCardProps> = ({ deta
   return (
     <div className="bg-gray-700/50 p-6 rounded-lg flex items-start gap-4 transform transition-all hover:bg-gray-700 hover:scale-105">
       <div className="text-brand-green flex-shrink-0 mt-1 bg-gray-900 p-3 rounded-full">
+        {/* FIX: Remove incorrect type cast on icon to allow props to be passed to cloneElement. */}
         {React.cloneElement(detail.icon, { className: 'w-6 h-6' })}
       </div>
       <div>

@@ -3,7 +3,8 @@ import type { ReactElement } from 'react';
 export interface Section {
   id: string;
   title: string;
-  icon: ReactElement;
+  // FIX: Specify props for the ReactElement to allow cloning with className.
+  icon: ReactElement<{ className?: string }>;
   subsections?: {
     id: string;
     title: string;
@@ -16,7 +17,8 @@ export interface Section {
 export interface CapabilityDetail {
   title: string;
   description: string;
-  icon: ReactElement;
+  // FIX: Specify props for the ReactElement to allow cloning with className.
+  icon: ReactElement<{ className?: string }>;
 }
 
 /**
@@ -26,7 +28,7 @@ export interface VideoDetail {
   id: string;
   label: string; // Full label for the placeholder
   shortLabel: string; // Short label for the button
-  path?: string; // Optional path to the video file
+  videoId?: string;
 }
 
 
@@ -40,9 +42,10 @@ export interface Capability {
   description: string;
   videos: VideoDetail[];
   details: CapabilityDetail[];
+  enhancements?: CapabilityDetail[]; // New property for future enhancements
+  exploreFurtherVideos?: VideoDetail[]; // New property for additional videos
   visualType?: 'video' | 'diagram';
   visualLabel?: string;
-  seeAlso?: { label: string; targetId: string; }[];
 }
 
 /**
@@ -51,7 +54,8 @@ export interface Capability {
 export interface StrategicPoint {
     title: string;
     description: string;
-    icon: ReactElement;
+    // FIX: Specify props for the ReactElement to allow cloning with className.
+    icon: ReactElement<{ className?: string }>;
 }
 
 export interface TeamMember {
@@ -69,26 +73,17 @@ export interface Team {
   members: TeamMember[];
 }
 
-export interface GanttTask {
-  name: string;
-  spans: { start: number; end: number }[];
-  isHighlighted?: boolean;
-}
-
-export interface GanttMilestone {
-  name: string;
-  week: number;
-}
-
 export interface ApproachPoint {
   title: string;
-  icon: ReactElement;
+  // FIX: Specify props for the ReactElement to allow cloning with className.
+  icon: ReactElement<{ className?: string }>;
   points: string[];
 }
 
 export interface ChoicePoint {
   title: string;
-  icon: ReactElement;
+  // FIX: Specify props for the ReactElement to allow cloning with className.
+  icon: ReactElement<{ className?: string }>;
   points: string[];
 }
 
@@ -99,7 +94,8 @@ export interface ConsiderationPoint {
 export interface EcosystemIntegration {
   name: string;
   category: string;
-  icon: ReactElement;
+  // FIX: Specify props for the ReactElement to allow cloning with className.
+  icon: ReactElement<{ className?: string }>;
 }
 
 // FIX: Add Feature interface to resolve missing type error.
@@ -120,6 +116,7 @@ export interface Role {
   id: string;
   name: string;
   description: string;
-  icon: ReactElement;
+  // FIX: Specify props for the ReactElement to allow cloning with className.
+  icon: ReactElement<{ className?: string }>;
   featureSequence: string[];
 }

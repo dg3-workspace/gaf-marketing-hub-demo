@@ -6,6 +6,7 @@ import { IntegrationLayerSection } from './components/sections/IntegrationLayerS
 import { EndUserExperienceSection } from './components/sections/EndUserExperienceSection';
 import { AdminExperienceSection } from './components/sections/AdminExperienceSection';
 import { StrategicSupportSection } from './components/sections/StrategicSupportSection';
+import { MobileExperienceSection } from './components/sections/MobileExperienceSection';
 import { useScrollSpy } from './hooks/useScrollSpy';
 import { SECTIONS } from './constants';
 import type { Section } from './types';
@@ -67,6 +68,7 @@ const App: React.FC = () => {
     'end-user-exp': <EndUserExperienceSection />,
     'admin-exp': <AdminExperienceSection />,
     support: <StrategicSupportSection />,
+    'mobile-exp': <MobileExperienceSection />,
   };
   
   const activeTopLevelIndex = SECTIONS.findIndex(s => s.id === activeSectionId || s.subsections?.some(sub => sub.id === activeSectionId));
@@ -83,12 +85,12 @@ const App: React.FC = () => {
         setIsOpen={setSidebarOpen}
       />
 
-      <main className="flex-1 transition-all duration-300 md:ml-64">
+      <main className="flex-1 transition-all duration-300 md:ml-72">
         {/* Mobile Header */}
         <div className="md:hidden sticky top-0 z-40 bg-white/80 backdrop-blur-md flex items-center justify-between p-4 border-b border-gray-200">
           <h1 className="text-lg font-bold text-brand-gray">GAF Marketing Hub</h1>
           <button onClick={() => setSidebarOpen(!sidebarOpen)} className="text-gray-600 hover:text-brand-gray">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
           </button>
         </div>
         
@@ -104,9 +106,11 @@ const App: React.FC = () => {
 
         <div className="relative">
           {SECTIONS.map((section: Section) => (
-            <div key={section.id} id={section.id} ref={sectionRefs[section.id]}>
-              {sectionsComponents[section.id]}
-            </div>
+            <React.Fragment key={section.id}>
+              <div id={section.id} ref={sectionRefs[section.id]}>
+                {sectionsComponents[section.id]}
+              </div>
+            </React.Fragment>
           ))}
         </div>
       </main>
