@@ -4,9 +4,10 @@ import React, { useState } from 'react';
 import { VideoPlaceholder } from '../ui/VideoPlaceholder';
 
 const PlayIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24" fill="currentColor" {...props}>
-    <path d="M6 3l14 9-14 9V3z" />
-  </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <circle cx="12" cy="12" r="10"></circle>
+      <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
+    </svg>
 );
 
 interface MobileVideo {
@@ -14,12 +15,11 @@ interface MobileVideo {
   label: string;
   shortLabel: string;
   videoId?: string;
+  embedUrl?: string;
 }
 
 const contractorVideos: MobileVideo[] = [
-  { id: 'mobile-browse', label: 'Mobile: Browsing the Site', shortLabel: 'Browsing', videoId: 'mobile-contractor-browsing' },
-  { id: 'mobile-cart', label: 'Mobile: Adding to Cart', shortLabel: 'Shopping Cart', videoId: 'mobile-contractor-shopping-cart' },
-  { id: 'mobile-checkout', label: 'Mobile: Checkout Experience', shortLabel: 'Checkout', videoId: 'mobile-contractor-checkout' },
+  { id: 'mobile-browsing-through-checkout', label: 'Mobile: Browsing Through Checkout', shortLabel: 'Browsing Through Checkout', embedUrl: 'https://www.loom.com/embed/8d37f88d98514704b8fe440c187aab2b' },
 ];
 
 interface AdminMobileCapability {
@@ -32,23 +32,23 @@ const adminCapabilities: AdminMobileCapability[] = [
   {
     title: 'User & Content Management',
     videos: [
-      { id: 'mobile-admin-products', label: 'Mobile Admin: Adding Products', shortLabel: 'Adding Products', videoId: 'mobile-admin-adding-products' },
+      { id: 'mobile-admin-products', label: 'Mobile Admin: Adding Products', shortLabel: 'Adding Products', embedUrl: 'https://www.loom.com/embed/484a2c1334d041c99790ece436a0adb0' },
     ],
   },
   {
     title: 'Approvals',
     videos: [
-      { id: 'mobile-admin-budgets', label: 'Mobile Admin: Approving Budgets', shortLabel: 'Approving Budgets', videoId: 'mobile-admin-approving-budgets' },
+      { id: 'mobile-admin-budgets', label: 'Mobile Admin: Approving Over-Budget or Co-branded Materials', shortLabel: 'Approving Over-Budget or Co-branded Materials', embedUrl: 'https://www.loom.com/embed/d2a3ab1ca7ba4a5f9a13f8a4cd6b525e' },
     ],
   },
   {
     title: 'Analytics & Reporting',
     videos: [
-      { id: 'mobile-admin-reporting', label: 'Mobile Admin: Reporting', shortLabel: 'Reporting', videoId: 'mobile-admin-reporting' },
+      { id: 'mobile-admin-reporting', label: 'Mobile Admin: Reporting', shortLabel: 'Reporting', embedUrl: 'https://www.loom.com/embed/8832a7dc30664610b8d8c2870e48b753' },
     ],
     exploreFurtherVideos: [
-      { id: 'mobile-admin-sidekick', label: 'Mobile Admin: AI Sidekick', shortLabel: 'AI Sidekick', videoId: 'mobile-admin-ai-sidekick' },
-      { id: 'mobile-admin-liveview', label: 'Mobile Admin: Live View', shortLabel: 'Live View', videoId: 'mobile-admin-live-view' },
+      { id: 'mobile-admin-sidekick', label: 'Mobile Admin: AI Sidekick', shortLabel: 'AI Sidekick', embedUrl: 'https://www.loom.com/embed/aa41848f13144340bc251a2e0e039e2a' },
+      { id: 'mobile-admin-liveview', label: 'Mobile Admin: Live View', shortLabel: 'Live View', embedUrl: 'https://www.loom.com/embed/db9472f55f24402a956835f61a735b5d' },
     ]
   }
 ];
@@ -94,7 +94,7 @@ export const MobileExperienceSection: React.FC = () => {
                                     The entire shopping journey is full-fidelity. Every feature from the desktop site is fully optimized for mobile, ensuring a seamless and intuitive experience on any device.
                                 </p>
                                 <div className="pt-4">
-                                    <h4 className="text-md font-bold text-brand-gray mb-3">Demonstrations:</h4>
+                                    <h4 className="text-md font-bold text-brand-gray mb-3">Demonstration:</h4>
                                     <div className="space-y-2 border-l-4 border-gray-200">
                                        {contractorVideos.map((video) => (
                                             <VideoSelectionButton
@@ -111,6 +111,7 @@ export const MobileExperienceSection: React.FC = () => {
                                 <VideoPlaceholder 
                                     label={activeContractorVideo.label} 
                                     videoId={activeContractorVideo.videoId} 
+                                    embedUrl={activeContractorVideo.embedUrl}
                                 />
                             </div>
                         </div>
@@ -123,6 +124,7 @@ export const MobileExperienceSection: React.FC = () => {
                                 <VideoPlaceholder 
                                     label={activeAdminVideo.label} 
                                     videoId={activeAdminVideo.videoId}
+                                    embedUrl={activeAdminVideo.embedUrl}
                                 />
                             </div>
                             <div className="space-y-4 md:order-1">

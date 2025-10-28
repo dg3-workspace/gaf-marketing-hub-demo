@@ -1,3 +1,4 @@
+
 import React, { ReactElement, useState } from 'react';
 import { TEAMS_DATA, APPROACH_POINTS_DATA, WHY_DG3_POINTS_DATA, KEY_CONSIDERATIONS_DATA, ECOSYSTEM_INTEGRATIONS, FUTURE_ECOSYSTEM_INTEGRATIONS } from '../../constants';
 import type { Team, TeamMember, ApproachPoint, ChoicePoint, ConsiderationPoint, EcosystemIntegration } from '../../types';
@@ -14,8 +15,8 @@ const LinkIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 const PersonPlaceholderIcon = (props: React.HTMLAttributes<HTMLDivElement>) => <div className="w-full h-full bg-gray-200 flex items-center justify-center rounded-full" {...props}><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>;
 
-const TeamMemberImage: React.FC<{ src: string; alt: string }> = ({ src, alt }) => (
-    <img src={src} alt={alt} className="w-full h-full bg-gray-200 flex items-center justify-center rounded-full" />
+const TeamMemberImage = (props: { src: string; alt?: string }) => (
+    <img src={props.src} alt={props.alt || 'Team member'} className="w-full h-full object-cover bg-gray-200 flex items-center justify-center rounded-full" />
 );
 
 // ===================================================================================
@@ -47,7 +48,27 @@ const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
              </div>
         )
     }
-    if (member.isCompact) {
+
+    if (member.isCompact && member.name === 'Platform Developer') {
+         return (
+             <div className="bg-white p-6 rounded-lg border border-gray-200 h-full flex flex-col justify-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105">
+                <div className="flex justify-center -space-x-6 mb-6">
+                    <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg bg-gray-100 z-20 transform hover:scale-110 transition-transform"><TeamMemberImage src="/images/promo.png" alt="Promo" /></div>
+                    <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg bg-gray-100 z-10 transform hover:scale-110 transition-transform"><TeamMemberImage src="/images/promo 2.png" alt="Promo" /></div>
+                </div>
+                <h4 className="font-bold text-brand-gray text-lg">{member.name}</h4>
+                <p className="text-gray-600 text-sm leading-relaxed mt-2">{member.description}</p>
+            </div>
+         )
+    } else if (member.isCompact && member.name === 'Technical Developer') {
+         return (
+             <div className="bg-white p-6 rounded-lg border border-gray-200 h-full flex flex-col justify-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105">
+                <div className="w-48 h-auto mx-auto mb-4">{member.imageComponent}</div>
+                <h4 className="font-bold text-brand-gray text-lg">{member.name}</h4>
+                <p className="text-gray-600 text-sm leading-relaxed mt-2">{member.description}</p>
+            </div>
+         )
+    } else if (member.isCompact) {
          return (
              <div className="bg-white p-6 rounded-lg border border-gray-200 h-full flex flex-col justify-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105">
                 <div className="w-16 h-16 mx-auto mb-4">{member.imageComponent}</div>
@@ -56,14 +77,30 @@ const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
             </div>
          )
     }
+    
     return (
-        <div className="flex items-start gap-6 p-4 rounded-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-50/50 hover:scale-[1.02]">
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex-shrink-0 bg-gray-100">{member.imageComponent}</div>
-            <div>
-                <h4 className="font-bold text-brand-gray text-xl">{member.name}</h4>
-                <p className="font-semibold text-brand-green text-sm mb-2">{member.title}</p>
-                <p className="text-gray-600 text-sm leading-relaxed">{member.description}</p>
+        <div className="p-4 rounded-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-50/50 hover:scale-[1.02]">
+            <div className="flex items-start gap-6">
+                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex-shrink-0 bg-gray-100">{member.imageComponent}</div>
+                
+                {/* Desktop view */}
+                <div className="hidden md:block">
+                    <h4 className="font-bold text-brand-gray text-xl">{member.name}</h4>
+                    <p className="font-semibold text-brand-green text-sm mb-2">{member.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{member.description}</p>
+                </div>
+                
+                {/* Mobile view of name/title */}
+                <div className="md:hidden">
+                    <h4 className="font-bold text-brand-gray text-xl">{member.name}</h4>
+                    <p className="font-semibold text-brand-green text-sm mb-2">{member.title}</p>
+                </div>
             </div>
+            
+            {/* Mobile view of description */}
+            <p className="md:hidden text-gray-600 text-sm leading-relaxed mt-4">
+                {member.description}
+            </p>
         </div>
     );
 };
@@ -71,62 +108,25 @@ const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
 const TeamSection: React.FC<{ team: Team }> = ({ team }) => {
     const commonCardClasses = "transition-all duration-300 hover:shadow-xl hover:scale-105";
 
-    if (team.id === 'team-tech')
-    {
-        const people = team.members.filter(m => !m.isCompact);
-        const techDev = team.members.find(m => m.name === 'Technical Developer');
-        const shopifyDev = team.members.find(m => m.name === 'Platform Developer');
-        
+    if (team.id === 'team-leadership') {
+        const topRow = team.members.slice(0, 2);
+        const bottomRow = team.members.slice(2);
+
         return (
             <div className="max-w-6xl mx-auto mb-16">
-                <div className="flex items-center justify-center gap-4 mb-8">
-                     <h3 className="text-3xl font-bold text-center text-brand-gray">{team.title}</h3>
-                </div>
-
-                <div className={`p-8 rounded-lg grid grid-cols-1 md:grid-cols-2 gap-12 items-start ${commonCardClasses}`}>
-                    <div className="space-y-20">
-                        {people.map(member => (
-                            
-                            <div className="flex items-start gap-6 p-4 rounded-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-50/50 hover:scale-[1.02]">
-                                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex-shrink-0 bg-gray-100">{member.imageComponent}</div>
-                                <div>
-                                    <h4 className="font-bold text-brand-gray text-xl">{member.name}</h4>
-                                    <p className="font-semibold text-brand-green text-sm mb-2">{member.title}</p>
-                                    <p className="text-gray-600 text-sm leading-relaxed">{member.description}</p>
-                                </div>
-                            </div>
-                        ))}
+                <h3 className="text-2xl font-bold text-center text-brand-green mb-10">{team.title}</h3>
+                <div className={`p-8 rounded-lg ${commonCardClasses}`}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 mb-10">
+                        {topRow.map(member => <TeamMemberCard key={member.name} member={member} />)}
                     </div>
-                    <div className="space-y-5">
-                        {/* Technical Developer */}
-                        {techDev && (
-                            <div className="bg-white p-4 rounded-lg border border-gray-200 h-full flex flex-col justify-center text-center">
-                                <div className="w-44 h-auto mx-auto mb-4">{techDev.imageComponent}</div>
-                                <h4 className="font-bold text-brand-gray text-lg">{techDev.name}</h4>
-                                <p className="text-gray-600 text-sm leading-relaxed mt-2">{techDev.description}</p>
-                            </div>
-                        )}
-                        
-                        {/* Platform Developer */}
-                        {shopifyDev && (
-                            
-                            <div className="bg-white p-6 rounded-lg border border-gray-200 h-full flex flex-col justify-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105">
-                                <div className="flex justify-center -space-x-6 mb-6">
-                                    <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg bg-gray-100 z-20 transform hover:scale-110 transition-transform"><TeamMemberImage src="/images/Donna.jpg" alt="Promo" /></div>
-                                    <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg bg-gray-100 z-10 transform hover:scale-110 transition-transform"><TeamMemberImage src="/images/Paul.jpg" alt="Promo" /></div>
-                                </div>
-                                <div>
-                                <h4 className="font-bold text-brand-gray text-lg">{shopifyDev.name}</h4>
-                                <p className="text-gray-600 text-sm leading-relaxed mt-2">{shopifyDev.description}</p>
-                                </div>
-                            </div>
-                        )}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
+                        {bottomRow.map(member => <TeamMemberCard key={member.name} member={member} />)}
                     </div>
                 </div>
             </div>
         );
     }
-    
+
     if (team.id === 'team-ops') {
         const people = team.members.filter(m => m.name !== 'Team Photos');
         const photos = team.members.find(m => m.name === 'Team Photos')?.additionalImages || [];
@@ -134,9 +134,9 @@ const TeamSection: React.FC<{ team: Team }> = ({ team }) => {
         return (
             <div className="max-w-6xl mx-auto mb-16">
                  <div className="flex items-center justify-center gap-4 mb-8">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-green"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"/></svg>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-green"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"/></svg>
                     <h3 className="text-3xl font-bold text-center text-brand-green">{team.title}</h3>
-                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-green"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"/></svg>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-green"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"/></svg>
                 </div>
 
                 <div className={`bg-white p-8 md:p-12 rounded-2xl border border-gray-200 shadow-xl ${commonCardClasses}`}>

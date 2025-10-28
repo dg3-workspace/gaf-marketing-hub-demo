@@ -9,14 +9,12 @@ const UserIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://ww
 const AdminIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2.4l-.15.1a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l-.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1 0 2.4l.15.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>;
 const HandshakeIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M11 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"></path><path d="M13 17a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-5"></path><path d="M12 12.5a2.5 2.5 0 0 1-2.5-2.5V7"></path><path d="M14.5 10a2.5 2.5 0 0 0-2.5 2.5v3.5"></path></svg>;
 const SmartphoneIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>;
-const PlaybookIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M14 2v20"/></svg>;
-const SupportIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>;
+const LayersIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>;
 
 // Detail Icons
 const DataIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>;
 const ShieldIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>;
 const TargetIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>;
-const LayersIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>;
 const EditIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>;
 const CreditCardIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>;
 const ImageIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>;
@@ -27,6 +25,15 @@ const CartIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://ww
 const AIIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M9.27 2.32A10 10 0 1 0 21.68 14.73"/><path d="m14.3 14.3 6.3 6.3"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/></svg>;
 const VisionIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>;
 const ZapIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>;
+const CodeIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>;
+const BoxIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>;
+const ShoppingBagIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-2z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>;
+const LinkIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"/></svg>;
+const PlaybookIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M14 2v20"/></svg>;
+const DatabaseIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>;
+const TruckIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>;
+const FileTextIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>;
+const TrendingUpIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>;
 
 // Icons for Part 3
 const PersonPlaceholderIcon = (props: React.HTMLAttributes<HTMLDivElement>) => <div className="w-full h-full bg-gray-200 flex items-center justify-center rounded-full" {...props}><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>;
@@ -34,18 +41,10 @@ const GroupPlaceholderIcon = (props: React.HTMLAttributes<HTMLDivElement>) => <d
 const ProcessIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M4 6h16M4 12h16M4 18h16"/></svg>;
 const ProductIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>;
 const StrategyIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="m9 12 2 2 4-4"/></svg>;
-const LinkIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"/></svg>;
 const CheckCircleIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>;
 const LightbulbIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 3.04 1.63 5.36 3.5 6.5.6.36.5 1.5 1.5 1.5h4c1 0 .9-1.14 1.5-1.5C17.37 14.36 19 12.04 19 9a7 7 0 0 0-7-7z"/></svg>;
 const BrainIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v0A2.5 2.5 0 0 1 9.5 7h0A2.5 2.5 0 0 1 7 4.5v0A2.5 2.5 0 0 1 9.5 2m0 5A2.5 2.5 0 0 1 12 9.5v0a2.5 2.5 0 0 1-2.5 2.5h0A2.5 2.5 0 0 1 7 9.5v0A2.5 2.5 0 0 1 9.5 7m5 0A2.5 2.5 0 0 1 17 9.5v0a2.5 2.5 0 0 1-2.5 2.5h0A2.5 2.5 0 0 1 12 9.5v0A2.5 2.5 0 0 1 14.5 7m0-5A2.5 2.5 0 0 1 17 4.5v0A2.5 2.5 0 0 1 14.5 7h0A2.5 2.5 0 0 1 12 4.5v0A2.5 2.5 0 0 1 14.5 2m-5 12A2.5 2.5 0 0 1 12 16.5v0a2.5 2.5 0 0 1-2.5 2.5h0A2.5 2.5 0 0 1 7 16.5v0a2.5 2.5 0 0 1 2.5-2.5m5 0A2.5 2.5 0 0 1 17 16.5v0a2.5 2.5 0 0 1-2.5 2.5h0A2.5 2.5 0 0 1 12 16.5v0a2.5 2.5 0 0 1 2.5-2.5m0 5A2.5 2.5 0 0 1 17 21.5v0a2.5 2.5 0 0 1-2.5 2.5h0a2.5 2.5 0 0 1-2.5-2.5v0A2.5 2.5 0 0 1 14.5 19m-5-2.5A2.5 2.5 0 0 1 7 14v0a2.5 2.5 0 0 1-2.5 2.5h0A2.5 2.5 0 0 1 2 14v0a2.5 2.5 0 0 1 2.5-2.5h0a2.5 2.5 0 0 1 2.5 2.5Z"/></svg>;
-const CodeIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>;
-const ShoppingBagIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-2z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>;
-const DatabaseIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>;
 const CloudIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>;
-const TrendingUpIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>;
-const BoxIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>;
-const TruckIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>;
-const FileTextIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>;
 const MapPinIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>;
 
 // Helper component for team member images
@@ -80,8 +79,8 @@ export const END_USER_CAPABILITIES: Capability[] = [
         title: 'Persona Rules Drive Experience',
         description: "The platform uses GAF’s Okta SSO to determine a user's persona, which immediately tailors the entire experience. This powerful, rule-based system presents specific product catalogs and promotional offers relevant to a user's role, region, and certification level. This isn’t just one storefront; it's a series of curated views tailored to each user group, ensuring content is always relevant from the moment they log in.",
         videos: [
-            { id: 'video-power-buyer', label: 'Video: Certified Contractor Experience', shortLabel: 'Cert. Contractor', videoId: 'essentials-01-cert-contractor' },
-            { id: 'video-certified-contractor', label: 'Video: Territory Manager Experience', shortLabel: 'Territory Manager', videoId: 'essentials-02-territory-manager' }
+            { id: 'video-certified-contractor', label: 'Video: Certified Contractor Experience', shortLabel: 'Cert. Contractor', embedUrl: 'https://www.loom.com/embed/e108aad6afb640949f9c5d1ce78a1713' },
+            { id: 'video-power-buyer', label: 'Video: Power Buyer Experience', shortLabel: 'Power Buyer', embedUrl: 'https://www.loom.com/embed/b62026b9d034422d9c1470e0f1bd8801' }
         ],
         details: [
             { title: 'Dynamic Content & Catalogs', description: 'The primary promotional banner, hero banner, special offer sections, product categories, and available items all update dynamically based on user persona and region to ensure relevance.', icon: <TargetIcon /> },
@@ -103,7 +102,7 @@ This evolution turns the GAF Storefront into a predictive strategist, deepening 
         title: 'Unified Shopping — Browsing & Search',
         description: "This section focuses on how users browse and discover items. The navigation is designed to feel familiar because when users don't have to learn a new system, they engage more. That sense of familiarity ultimately drives measurable program lift, even as the platform scales effortlessly beneath it.",
         videos: [
-            { id: 'video-browsing', label: 'Video: Navigating and Filtering for Items', shortLabel: 'Browsing', videoId: 'essentials-03-browsing' }
+            { id: 'video-browsing', label: 'Video: Navigating and Filtering for Items', shortLabel: 'Browsing', embedUrl: 'https://www.loom.com/embed/dae78cb99588495995f9aeae605d88f5' }
         ],
         details: [
             { title: 'Intuitive Navigation & Filtering', description: 'A familiar navigation structure allows users to intuitively filter, sort, and search across everything from print to promo to digital assets.', icon: <GridIcon /> },
@@ -124,13 +123,13 @@ Crucially, the platform analyzes every interaction—every search, click, and ev
         title: 'Unified Shopping — Asset Types',
         description: "The platform's true power lies in handling diverse product classes—physical products, kits, rentals, customizable items, and pure digital assets—all handled in a single cart, through one platform experience. This dramatically improves the user experience, which is key for platform adoption.",
         videos: [
-            { id: 'video-static', label: 'Video: Shopping for a Static Item', shortLabel: 'Static Item', videoId: 'essentials-04-static-item' },
-            { id: 'video-dynamic-kits', label: 'Video: Exploring Dynamic Kits', shortLabel: 'Dynamic Kits', videoId: 'essentials-05-dynamic-kits' },
-            { id: 'video-preset-kits', label: 'Video: Exploring Preset Kits (e.g., Docebo Integration)', shortLabel: 'Preset Kits', videoId: 'essentials-06-preset-kits' },
-            { id: 'video-fixed-price-kits', label: 'Video: Exploring Fixed Priced Dynamic Kits', shortLabel: 'Fixed Price Kits', videoId: 'essentials-07-fixed-price-kits' },
-            { id: 'video-booth', label: 'Video: Booth-in-a-Box', shortLabel: 'Booth-in-a-Box', videoId: 'essentials-08-booth-in-a-box' },
-            { id: 'video-3d', label: 'Video: JBL Speaker with 3D Viewer', shortLabel: '3D Viewer', videoId: 'essentials-09-3d-viewer' },
-            { id: 'video-digital-download', label: 'Video: Accessing Digital Downloads', shortLabel: 'Digital Downloads', videoId: 'essentials-10-digital-downloads' },
+            { id: 'video-static', label: 'Video: Shopping for a Static Item', shortLabel: 'Static Item', embedUrl: 'https://www.loom.com/embed/7838e908e21c470b957e2a6dd6cc8f13' },
+            { id: 'video-preset-kits', label: 'Video: Exploring Preset Kits (e.g., Docebo Integration)', shortLabel: 'Preset Kits', embedUrl: 'https://www.loom.com/embed/4e5d1bab67ac4865958e831cb5fff004' },
+            { id: 'video-dynamic-kits', label: 'Video: Exploring Dynamic Kits', shortLabel: 'Dynamic Kits', embedUrl: 'https://www.loom.com/embed/2779fc2b12e24fbe973554843c92f219' },
+            { id: 'video-fixed-price-kits', label: 'Video: Exploring Fixed Priced Dynamic Kits', shortLabel: 'Fixed Price Kits', embedUrl: 'https://www.loom.com/embed/b2f49c8f1de5468f9bf0d0fabda4a8fb' },
+            { id: 'video-booth', label: 'Video: Booth-in-a-Box', shortLabel: 'Booth-in-a-Box', embedUrl: 'https://www.loom.com/embed/32010fa666034319a5d5d2dfa7e0a97c' },
+            { id: 'video-3d', label: 'Video: JBL Speaker with 3D Viewer', shortLabel: '3D Viewer', embedUrl: 'https://www.loom.com/embed/e5d01d7fdbd549e7be6c9479eb6892d9' },
+            { id: 'video-digital-download', label: 'Video: Accessing Digital Downloads', shortLabel: 'Digital Downloads', embedUrl: 'https://www.loom.com/embed/acd439b5b38e456b8b5e6e06a884cca8' },
         ],
         details: [
             { title: 'One Cart, All Assets', description: 'Physical products, digital downloads, rentals, and customizable items all coexist in a single, unified shopping cart for a streamlined checkout.', icon: <CartIcon /> },
@@ -151,8 +150,8 @@ Crucially, the platform analyzes every interaction—every search, click, and ev
         title: 'Co-branding, Customization & Approvals',
         description: "Our customization engine is streamlined for everyday use, empowering users to stay on brand without slowing down. For any co-branded item, the workflow automatically routes it for approval. It's an elegant balance between control and speed, ensuring every piece is approved and on-brand, but eliminating the manual bottlenecks that slow things down.",
         videos: [
-            { id: 'video-custom-promo', label: 'Video: Customizing a Zip-Up Sweater', shortLabel: 'Promo Item', videoId: 'essentials-11-promo-item' },
-            { id: 'video-custom-digital', label: 'Video: Customizing an Instagram Reel', shortLabel: 'Digital Asset', videoId: 'essentials-12-digital-asset' }
+            { id: 'video-custom-promo', label: 'Video: Customizing a Zip-Up Sweater', shortLabel: 'Promo Item', embedUrl: 'https://www.loom.com/embed/663c9949875c467d960fd03139f68b04' },
+            { id: 'video-custom-digital', label: 'Video: Customizing an Instagram Reel', shortLabel: 'Digital Asset', embedUrl: 'https://www.loom.com/embed/f0104aaa622d40fd95abf8a9710aca45' }
         ],
         details: [
             { title: 'Automated Quality Checks', description: 'Uploading a low-resolution logo automatically triggers a quality warning, prompting the user to replace it with a high-resolution version.', icon: <ShieldIcon /> },
@@ -160,17 +159,32 @@ Crucially, the platform analyzes every interaction—every search, click, and ev
             { title: 'Consistent Experience', description: 'Customizing a digital asset works exactly the same way as a print or promo piece. The same rules apply—safe zones, logo placement, and co-branding standards.', icon: <LayersIcon /> },
             { title: 'Automated Approval Workflows', description: 'Co-branded items are automatically sent to the appropriate approver, who can review and approve the artwork in a simple dashboard.', icon: <TargetIcon /> },
         ],
+        exploreFurtherVideos: [
+            {
+                id: 'video-advanced-customization',
+                label: 'Video: Future State: Advanced Customization',
+                shortLabel: 'Advanced Customization',
+                embedUrl: 'https://www.loom.com/embed/fae799168b394d0e94c1658a3c31ea53',
+            },
+        ],
+        enhancements: [
+            {
+                title: 'Advanced Customization Engine (Chili GraFx)',
+                icon: <FileTextIcon />,
+                description: `The 2026 roadmap introduces a powerful evolution in collateral creation with the integration of an advanced customization engine. This moves beyond simple co-branding to enable true high-fidelity template editing. Users, such as TMs and contractors, will be able to build brochures dynamically tailored to their specific market needs—adjusting layouts, reordering product swatches based on regional popularity, and instantly personalizing content. This deep customization, which includes standard logo and contact information updates, will be seamlessly integrated into the native Shopify shopping experience, eliminating the need for a separate punch-out. The result is a highly relevant, custom-tailored marketing piece designed to drive engagement and generate more leads.`
+            }
+        ]
     },
     {
         id: 'cap-checkout-returns',
         title: 'Unified Multi-Tender Checkout & Returns',
         description: "The checkout is engineered to be instantly familiar, mirroring the intuitive design of modern e-commerce to eliminate any learning curve. Beneath this simplicity, it powerfully integrates GAF-specific business logic—handling rewards, multi-address shipping, budget controls, and returns in a single, unified workflow. This seamless process reduces cart abandonment and elevates the contractor experience.",
         videos: [
-            { id: 'video-checkout', label: 'Video: Checkout with Mixed Payments & Approvals', shortLabel: 'Checkout', videoId: 'essentials-13-checkout' },
-            { id: 'video-returns', label: 'Video: Initiating a Product Return', shortLabel: 'Returns', videoId: 'essentials-14-returns' }
+            { id: 'video-checkout', label: 'Video: Checkout with Mixed Payments & Approvals', shortLabel: 'Checkout', embedUrl: 'https://www.loom.com/embed/6e71f4b253304b58bba551671e204eb2' },
+            { id: 'video-returns', label: 'Video: Initiating a Product Return', shortLabel: 'Returns', embedUrl: 'https://www.loom.com/embed/9d454923ce3b4389aa8df5706dfe0119' }
         ],
         details: [
-            { title: 'Multi-Tender Payments', description: "GAF's specific multi-tender payments with Co-op Dollars, Rewards Bucks, and credit cards are handled in a single transaction.", icon: <CreditCardIcon /> },
+            { title: 'Multi-Tender Payments', description: "GAF's specific multi-tender payments with Co-op Dollars, Rewards Dollars, and credit cards are handled in a single transaction.", icon: <CreditCardIcon /> },
             { title: 'Future-Proof with Custom Functions', description: "The new, modern approach is to use custom functions. This powerful tool lets us build complex, custom checkout logic and run it directly within the platform's secure, sandboxed environment at native speed.", icon: <CodeIcon />},
             { title: 'Budget & Approval Triggers', description: 'If an order exceeds a user\'s budget, the system automatically pauses the order and routes it to an approver.', icon: <ShieldIcon /> },
         ],
@@ -181,16 +195,14 @@ export const ADMIN_CAPABILITIES: Capability[] = [
     {
         id: 'cap-admin-content',
         title: 'User & Content Management',
-        description: "Administrators can manage users, content, and budgets directly from the admin panel — no vendor tickets, no delays. That level of control keeps GAF agile, allowing marketing teams to adapt in real time without waiting for vendor cycles.",
+        description: "The admin panel empowers administrators to manage users, content, and budgets directly, enabling immediate updates. This agility allows GAF's marketing teams to adapt in real time, with the full backing of our strategic and technical support.",
         videos: [
-            { id: 'video-admin-banners', label: 'Video: Managing Promotional Banners', shortLabel: 'Promo Banners', videoId: 'essentials-15-promo-banners' },
-            { id: 'video-admin-themes', label: 'Video: Customizing Storefront Themes', shortLabel: 'Theme Editor', videoId: 'essentials-16-theme-editor' }
+            { id: 'video-admin-promo-offers', label: 'Video: Managing Promotional Offers', shortLabel: 'Promo Offers', embedUrl: 'https://www.loom.com/embed/93ed0de88fc9420b8b37337b6285dcf2' }
         ],
         exploreFurtherVideos: [
-            { id: 'video-admin-products', label: 'Video: How to Set Up New Products', shortLabel: 'Add New Product', videoId: 'unlock-more-add-new-product' },
-            { id: 'video-sidekick-bogo', label: 'Video: AI-Generated BOGO Promotion', shortLabel: 'AI Marketing', videoId: 'unlock-more-ai-marketing' },
-            { id: 'video-multi-vendor', label: 'Video: Multi-Vendor Sourcing', shortLabel: 'Multi-Vendor Sourcing', videoId: 'unlock-more-multi-vendor-sourcing' },
-            { id: 'video-po-management', label: 'Video: Purchase Order Management', shortLabel: 'PO Management', videoId: 'unlock-more-po-management' }
+            { id: 'video-admin-products', label: 'Video: How to Set Up New Products', shortLabel: 'Add New Product', embedUrl: 'https://www.loom.com/embed/cb2126e56795488a970ac252aaf7d57f' },
+            { id: 'video-sidekick-bogo', label: 'Video: AI-Generated BOGO Promotion', shortLabel: 'AI Marketing', embedUrl: 'https://www.loom.com/embed/de61111c854244729e0ba0cefd97304e' },
+            { id: 'video-po-management', label: 'Video: Purchase Order Management', shortLabel: 'PO Management', embedUrl: 'https://www.loom.com/embed/6571d80a8d48479d86de088d244c70d0' }
         ],
         details: [
             { title: 'Direct Content Updates', description: 'Administrators can perform simple text and image edits on promotional banners and publish them instantly to the live site.', icon: <EditIcon /> },
@@ -204,10 +216,10 @@ export const ADMIN_CAPABILITIES: Capability[] = [
     },
     {
         id: 'cap-admin-budgets',
-        title: 'Budget Management & Product Limits',
+        title: 'Budget Management',
         description: "This feature provides GAF with direct, real-time control over program spending. Budgets can be assigned by user, region, or role, and changes take effect immediately — no refresh required. These values can also flow automatically from the Integration Layer, syncing available GAF Bucks or Co-op Dollars.",
         videos: [
-            { id: 'video-admin-budgets', label: 'Video: Setting Budgets and Product Rules', shortLabel: 'Budgets & Limits', videoId: 'essentials-17-budgets-and-limits' }
+            { id: 'video-admin-budgets', label: 'Video: Budget Management', shortLabel: 'Budget Management', embedUrl: 'https://www.loom.com/embed/1f0a6aa7aa57441da2c169441dc3256c' }
         ],
         details: [
             { title: 'Real-Time Control', description: 'Assign a budget limit (e.g., $1,000) to a contractor, and the change takes effect instantly, preventing budget overruns.', icon: <UserIcon /> },
@@ -220,11 +232,10 @@ export const ADMIN_CAPABILITIES: Capability[] = [
         title: 'Approvals & Workflows',
         description: "The platform's intelligent approval workflows provide robust brand and budget control without creating bottlenecks. From co-branded assets to budget overrides and social media content, the system automates the routing, review, and notification process, ensuring speed and compliance go hand-in-hand.",
         videos: [
-            { id: 'video-over-budget', label: 'Video: Managing Over-Budget Approvals', shortLabel: 'Over-Budget', videoId: 'essentials-18-over-budget' },
-            { id: 'video-co-brand-approval', label: 'Video: Managing Co-branding Approvals', shortLabel: 'Co-brand', videoId: 'essentials-19-co-brand' }
+            { id: 'video-approval-workflows', label: 'Video: Approving Co-branded or Over-Budget Items', shortLabel: 'Approvals', embedUrl: 'https://www.loom.com/embed/c13ed052d6284044be289c3af42db048' }
         ],
         exploreFurtherVideos: [
-            { id: 'video-admin-flow', label: 'Video: Automating Workflows with Flow', shortLabel: 'Flow Automation', videoId: 'unlock-more-flow-automation' }
+            { id: 'video-admin-flow', label: 'Video: Automating Workflows with Flow', shortLabel: 'Flow Automation', embedUrl: 'https://www.loom.com/embed/a54ebb2a03c54b5cb0336e6653ccf77c' }
         ],
         details: [
             { title: 'Over-Budget Order Flagging', description: 'A dashboard widget immediately flags any orders that have exceeded a user\'s or department\'s budget, routing them for approval.', icon: <ShieldIcon /> },
@@ -237,12 +248,12 @@ export const ADMIN_CAPABILITIES: Capability[] = [
         title: 'Analytics & Reporting',
         description: "The platform provides a comprehensive analytics suite, featuring both robust, integrated reporting for real-time operational insights and a seamless data flow into Tableau via the DG3 Integration Layer. This dual approach ensures that GAF stakeholders have immediate access to both day-to-day transactional data and high-level business intelligence, all without switching contexts.",
         videos: [
-            { id: 'video-tableau-analytics', label: 'Video: Tableau Reporting and Analytics', shortLabel: 'Tableau Analytics', videoId: 'essentials-20-tableau-analytics' },
-            { id: 'video-integrated-analytics', label: 'Video: Integrated Reporting and Analytics', shortLabel: 'Integrated Analytics', videoId: 'essentials-21-integrated-analytics' }
+            { id: 'video-tableau-analytics', label: 'Video: Tableau Reporting and Analytics', shortLabel: 'Tableau Analytics', embedUrl: 'https://www.loom.com/embed/ca5bd70da0ca4b28832b3a3c35da499d' },
+            { id: 'video-integrated-analytics', label: 'Video: Integrated Reporting and Analytics', shortLabel: 'Integrated Analytics', embedUrl: 'https://www.loom.com/embed/e8c659bda7ed4d85af956ecd56a06d0e' }
         ],
         exploreFurtherVideos: [
-            { id: 'video-sidekick-report', label: 'Video: AI-Generated Restock Report', shortLabel: 'AI Reporting', videoId: 'unlock-more-ai-reporting' },
-            { id: 'video-sidekick-skills', label: 'Video: Using AI Skills for Custom Tasks', shortLabel: 'AI Skills', videoId: 'unlock-more-ai-skills' }
+            { id: 'video-sidekick-report', label: 'Video: AI-Generated Restock Report', shortLabel: 'AI Reporting', embedUrl: 'https://www.loom.com/embed/d77270f0fdbd4e5b93c207ea3c9a49e6' },
+            { id: 'video-sidekick-skills', label: 'Video: Using AI Skills for Custom Tasks', shortLabel: 'AI Skills', embedUrl: 'https://www.loom.com/embed/f00810d17ef044c08a590e9b6020c0fa' }
         ],
         details: [
             { title: 'Tableau Dashboards', description: "View KPIs like Total Orders, Average Order Value, and Top Selling Products. Drill down into a specific region to see how the data filters dynamically.", icon: <DataIcon /> },
@@ -296,41 +307,42 @@ export const TEAMS_DATA: Team[] = [
         id: 'team-leadership',
         title: 'Your Account Leadership Team',
         members: [
-            { name: 'Kyle Drake', title: 'Enterprise Account Director', description: "Oversees execution of entire people, process, technology, product and pricing program for GAF. Fully dedicated to GAF, serving as the voice of the client within DG3.", imageComponent: <TeamMemberImage src="/images/IMG_6721.jpeg" alt="Kyle Drake" />},
-            { name: 'Tom Hunter', title: 'Strategic Advisor', description: "Provides institutional knowledge and advice, ensures continuity of product workflow, assists EAM when EAM requires.", imageComponent: <TeamMemberImage src="/images/tom.jpeg" alt="Tom Hunter" /> },
-            { name: 'Justine Doherty', title: 'Launch Project Manager & In-service Program Manager', description: "Dedicated to GAF and oversees end-to-end launch program and ongoing support program covering systems, products, services and spanning strategy, training and ongoing execution.", imageComponent: <TeamMemberImage src="/images/Justine.png" alt="Justine Doherty" /> },
-            { name: 'Kathy Aquirre', title: 'Account Coordinator, Analyst', description: "Supports all administrative functions required for GAF, including reconciliations, documentation, pricing and billing processes.", imageComponent: <TeamMemberImage src="/images/Kathy.png" alt="Kathy Aquirre" /> },
+            { name: 'Kyle Drake', title: 'Enterprise Account Director', description: "Oversees execution of entire people, process, technology, product and pricing program for GAF. Fully dedicated to GAF, serving as the voice of the client within DG3.", imageComponent: <TeamMemberImage src="/images/kyle_drake.jpeg" alt="Kyle Drake" /> },
+            { name: 'Tom Hunter', title: 'Strategic Advisor', description: "Provides institutional knowledge and advice, ensures continuity of product workflow, assists EAM when EAM requires.", imageComponent: <TeamMemberImage src="/images/tom_hunter.jpeg" alt="Tom Hunter" /> },
+            { name: 'Justine Doherty', title: 'Launch Project Manager & In-service Program Manager', description: "Dedicated to GAF and oversees end-to-end launch program and ongoing support program covering systems, products, services and spanning strategy, training and ongoing execution.", imageComponent: <TeamMemberImage src="/images/justine_doherty.png" alt="Justine Doherty" /> },
+            { name: 'Teresa Hart', title: 'TBD', description: "TBD", imageComponent: <TeamMemberImage src="/images/teresa_hart.png" alt="Teresa Hart" /> },
+            { name: 'Kathy Aquirre', title: 'Account Coordinator, Analyst', description: "Supports all administrative functions required for GAF, including reconciliations, documentation, pricing and billing processes.", imageComponent: <TeamMemberImage src="/images/kathy_aquirre.png" alt="Kathy Aquirre" /> },
         ]
     },
     {
         id: 'team-tech',
         title: 'Your Technology Deploy/Maintain Team',
         members: [
-            { name: 'Eric Genova', title: 'DG3 Technology & Services Leader', description: 'Technical, platform and professional services leader. Directly steering planning and execution of platform deployment.', imageComponent: <TeamMemberImage src="/images/Eric.jpg" alt="Eric Genova" /> },
-            { name: 'Technical Developer', title: '', description: 'Dedicated data warehouse, API, GAF integrations, vendor integrations and DG3 systems integration developer.', imageComponent: <TeamPhotoImage src="/images/Dev Team Photo.jpg" alt="Technical Developer Team" />, isCompact: true },
-            { name: 'Christina Naili', title: 'Project Manager', description: 'Specializing in deploying enterprise commerce solutions. Launch and integrations specialist for all systems. Drives technical project and all launch and ongoing development efforts.', imageComponent: <TeamMemberImage src="/images/Christina.jpg" alt="Christina Naili" /> },
-            { name: 'Platform Developer', title: '', description: 'Certified expert platform integrator and customizer.', imageComponent: <PersonPlaceholderIcon />, isCompact: true },
+            { name: 'Eric Genova', title: 'DG3 Technology & Services Leader', description: 'Technical, platform and professional services leader. Directly steering planning and execution of platform deployment.', imageComponent: <TeamMemberImage src="/images/eric_genova.jpg" alt="Eric Genova" /> },
+            { name: 'Technical Developer', title: '', description: 'Dedicated data warehouse, API, GAF integrations, vendor integrations and DG3 systems integration developer.', imageComponent: <TeamMemberImage src="/images/dev_team.jpg" alt="Technical Developer" />, isCompact: true },
+            { name: 'Christina Naili', title: 'Project Manager', description: 'Specializing in deploying enterprise commerce solutions. Launch and integrations specialist for all systems. Drives technical project and all launch and ongoing development efforts.', imageComponent: <TeamMemberImage src="/images/christina_naili.jpg" alt="Christina Naili" /> },
+            { name: 'Platform Developer', title: '', description: 'Certified expert platform integrator and customizer.', imageComponent: <TeamMemberImage src="/images/platform_developer.jpg" alt="Platform Developer" />, isCompact: true },
         ]
     },
     {
         id: 'team-ops',
         title: 'Your Frontline Operational Support',
         members: [
-            { name: 'Nick Roberts', title: 'Promotional Lead', description: 'Deploys team to support all promotional, BiaB, and other promotional and merchandise strategy and execution.', imageComponent: <TeamMemberImage src="/images/nick promo.jpg" alt="Nick Roberts" /> },
-            { name: 'Team Photos', title: '', description: '', imageComponent: <div/>, isCompact: true, additionalImages: [<TeamPhotoImage src="/images/IMG_7252 (002).jpg" alt="Fulfillment Team" />, <TeamPhotoImage src="/images/IMG_3824.jpg" alt="Fulfillment Team" />, <TeamPhotoImage src="/images/Fulfillment Team.jpeg" alt="Fulfillment Team" />] },
-            { name: 'JoAnn Smolen', title: 'Print Lead', description: 'Oversees all premedia and print production needs and ensures alignment and execution. Cross trains backup team.', imageComponent: <TeamMemberImage src="/images/JoAnn Smolen - Picture.png" alt="JoAnn Smolen" /> },
-            { name: 'TJ Taylor', title: 'Fulfillment Lead', description: 'Oversees all fulfillment execution across all fulfilled products (lit, merch, BiaB).', imageComponent: <TeamMemberImage src="/images/IMG_5647.jpeg" alt="TJ Taylor" /> },
+            { name: 'Nick Roberts', title: 'Promotional Lead', description: 'Deploys team to support all promotional, BiaB, and other promotional and merchandise strategy and execution.', imageComponent: <TeamMemberImage src="/images/nick_roberts.jpg" alt="Nick Roberts" /> },
+            { name: 'Team Photos', title: '', description: '', imageComponent: <div/>, isCompact: true, additionalImages: [<TeamPhotoImage src="/images/liah_avegno.jpg" alt="Liah Avegno" />, <TeamPhotoImage src="/images/operational_support_1.jpg" alt="Operational Support" />, <TeamPhotoImage src="/images/operational_support_2.jpg" alt="Operational Support" />] },
+            { name: 'JoAnn Smolen', title: 'Print Lead', description: 'Oversees all premedia and print production needs and ensures alignment and execution. Cross trains backup team.', imageComponent: <TeamMemberImage src="/images/joann_smolen.png" alt="JoAnn Smolen" /> },
+            { name: 'TJ Taylor', title: 'Fulfillment Lead', description: 'Oversees all fulfillment execution across all fulfilled products (lit, merch, BiaB).', imageComponent: <TeamMemberImage src="/images/tj_taylor.jpeg" alt="TJ Taylor" /> },
         ]
     },
     {
         id: 'team-exec',
         title: 'Your Executive Support Team',
         members: [
-            { name: 'Joe Lindfeldt', title: 'Chief Revenue Officer', description: 'Supports alignment and allocation of resources for execution of GAF requirements across sales and services parts of DG3.', imageComponent: <TeamMemberImage src="/images/joe.jpg" alt="Joe Lindfeldt" /> },
-            { name: 'Pat Caragliano', title: 'Chief Operations Officer', description: 'Ensures delivery of on-time and error-free performance for items produced or managed by DG3.', imageComponent: <TeamMemberImage src="/images/pat-carigliano.jpg" alt="Pat Caragliano" /> },
-            { name: 'Mike Weeks', title: 'Director of Strategic Solutions Group', description: 'Identifies, sources and oversees supply of external products and services in support of GAF requirements.', imageComponent: <TeamMemberImage src="/images/mike-weeks.png" alt="Mike Weeks" /> },
-            { name: 'Mike Roth', title: 'Chief Financial Officer', description: 'Oversees team delivery of seamless financial integrations and evaluates strategic product requirements for GAF (product financing, vendor alignments).', imageComponent: <TeamMemberImage src="/images/MikeRoth.jpg" alt="Mike Roth" /> },
-            { name: 'Steve Babat', title: 'Chief Executive Officer', description: 'Supports entire team and drives alignment towards all client requirements across our enterprise.', imageComponent: <TeamMemberImage src="/images/steven-babat.jpg" alt="Steve Babat" /> },
+            { name: 'Joe Lindfeldt', title: 'Chief Revenue Officer', description: 'Supports alignment and allocation of resources for execution of GAF requirements across sales and services parts of DG3.', imageComponent: <TeamMemberImage src="/images/joe_lindfeldt.jpg" alt="Joe Lindfeldt" /> },
+            { name: 'Pat Caragliano', title: 'Chief Operations Officer', description: 'Ensures delivery of on-time and error-free performance for items produced or managed by DG3.', imageComponent: <TeamMemberImage src="/images/pat_caragliano.jpg" alt="Pat Caragliano" /> },
+            { name: 'Mike Weeks', title: 'Director of Strategic Solutions Group', description: 'Identifies, sources and oversees supply of external products and services in support of GAF requirements.', imageComponent: <TeamMemberImage src="/images/mike_weeks.png" alt="Mike Weeks" /> },
+            { name: 'Mike Roth', title: 'Chief Financial Officer', description: 'Oversees team delivery of seamless financial integrations and evaluates strategic product requirements for GAF (product financing, vendor alignments).', imageComponent: <TeamMemberImage src="/images/mike_roth.jpg" alt="Mike Roth" /> },
+            { name: 'Steve Babat', title: 'Chief Executive Officer', description: 'Supports entire team and drives alignment towards all client requirements across our enterprise.', imageComponent: <TeamMemberImage src="/images/steve_babat.jpg" alt="Steve Babat" /> },
         ]
     }
 ];

@@ -1,6 +1,5 @@
 import React from 'react';
 import { INTEGRATION_LAYER_CAPABILITY } from '../../constants';
-import { VideoPlaceholder } from '../ui/VideoPlaceholder';
 import { ExpandableDetail } from '../ui/ExpandableDetail';
 
 const BuildingIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M3 21h18"/><path d="M5 21V5l7-4 7 4v16"/><path d="M9 21v-8h6v8"/><path d="M9 9h6v4H9z"/></svg>;
@@ -19,8 +18,8 @@ export const IntegrationLayerSection: React.FC = () => {
                         Before diving into the user experience, it’s critical to understand the technology that makes it all possible. This is the connective tissue that unifies GAF's marketing ecosystem.
                     </p>
                 </div>
-                <div className="grid md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
-                    <div className="space-y-4">
+                <div className="grid md:grid-cols-5 gap-12 items-start max-w-6xl mx-auto">
+                    <div className="md:col-span-2 space-y-4">
                         <h3 className="text-2xl font-bold text-brand-green">{capability.title}</h3>
                         <p className="text-gray-600 leading-relaxed">{capability.description}</p>
                         <div className="pt-4 space-y-3">
@@ -33,8 +32,15 @@ export const IntegrationLayerSection: React.FC = () => {
                             ))}
                         </div>
                     </div>
-                    <div>
-                        <VideoPlaceholder label={capability.videos[0].label} videoId={capability.videos[0].videoId} />
+                    <div className="md:col-span-3 rounded-lg overflow-hidden shadow-2xl">
+                        <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+                            <iframe 
+                                src="https://www.loom.com/embed/dc9e44d22acb4ab7b67900993f6ab1e2" 
+                                frameBorder="0" 
+                                allowFullScreen 
+                                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -29,6 +29,7 @@ export interface VideoDetail {
   label: string; // Full label for the placeholder
   shortLabel: string; // Short label for the button
   videoId?: string;
+  embedUrl?: string;
 }
 
 

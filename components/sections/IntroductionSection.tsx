@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { Button } from '../ui/Button';
-import { VideoPlaceholder } from '../ui/VideoPlaceholder';
 
 interface IntroductionSectionProps {
   onNavigate: (id: string) => void;
@@ -32,8 +30,16 @@ export const IntroductionSection: React.FC<IntroductionSectionProps> = ({ onNavi
             </Button>
           </div>
         </div>
-        <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-          <VideoPlaceholder label="GAF Marketing Hub: An Overview" videoId="overview" />
+        <div className="animate-fade-in-up rounded-lg overflow-hidden shadow-2xl" style={{ animationDelay: '200ms' }}>
+          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+            {/* FIX: Removed non-standard iframe attributes 'webkitAllowFullScreen' and 'mozAllowFullScreen' to resolve TypeScript errors. The standard 'allowFullScreen' attribute is sufficient for modern browsers. */}
+            <iframe
+              src="https://www.loom.com/embed/dafecf83bd99449da306b77cba9f5271"
+              frameBorder="0"
+              allowFullScreen
+              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>

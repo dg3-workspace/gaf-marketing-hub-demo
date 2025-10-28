@@ -36,6 +36,20 @@ const EnhancementDisplay: React.FC<{ enhancement: CapabilityDetail }> = ({ enhan
   );
 };
 
+const EmbeddedVideo: React.FC<{ url: string }> = ({ url }) => {
+  return (
+    <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+      <iframe
+        key={url}
+        src={url}
+        frameBorder="0"
+        allowFullScreen
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+      ></iframe>
+    </div>
+  );
+};
+
 
 const CapabilityModule: React.FC<{ capability: Capability; index: number }> = ({ capability, index }) => {
   const [activeVideo, setActiveVideo] = useState<VideoDetail>(capability.videos[0]);
@@ -47,118 +61,145 @@ const CapabilityModule: React.FC<{ capability: Capability; index: number }> = ({
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24" fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
   );
 
-  return (
-    <div className="grid md:grid-cols-2 gap-12 items-start">
-      <div className={`space-y-4 ${isReversed ? 'md:order-2' : ''}`}>
-        <span className="text-6xl font-extrabold text-brand-green opacity-40">0{index + 1}</span>
-        <h3 className="text-2xl font-bold text-brand-green mt-[-1rem]">{capability.title}</h3>
-        <p className="text-gray-600 leading-relaxed">{capability.description}</p>
-        
-        <div className="pt-4">
-          <h4 className="flex items-center gap-2 text-sm font-semibold text-gray-500 tracking-wider uppercase mb-3">
-            <SearchIcon />
-            <span>Feature Details</span>
-          </h4>
-          <div className="space-y-3">
-            {capability.details.map((detail) => (
-              <ExpandableDetail key={detail.title} detail={detail} />
-            ))}
-          </div>
-        </div>
-      </div>
-      <div className={isReversed ? 'md:order-1' : ''}>
-          {capability.visualType === 'diagram' ? (
-            <DiagramPlaceholder label={capability.visualLabel || 'System Diagram'} />
-          ) : (
-            <div>
-              <VideoPlaceholder 
-                label={activeVideo.label} 
-                videoId={activeVideo.videoId}
-              />
-              {totalVideos > 1 && (
-                <div className="mt-4 p-4 bg-gray-100 rounded-lg space-y-4 border border-gray-200">
-                  <div>
-                    <h5 className="text-sm font-semibold text-gray-500 mb-3">The Essentials:</h5>
-                    <div className="flex flex-wrap gap-3">
-                      {capability.videos.map((video) => (
-                        <button
-                          key={video.id}
-                          onClick={() => setActiveVideo(video)}
-                          className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 transform hover:scale-105 ${
-                            activeVideo.id === video.id
-                              ? 'bg-brand-green text-white shadow-lg'
-                              : 'bg-white text-gray-700 hover:bg-gray-200 border border-gray-200'
-                          }`}
-                        >
-                          {PlayIcon}
-                          <span>{video.shortLabel}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+  const titleAndDescription = (
+    <div className="space-y-4">
+      <span className="text-6xl font-extrabold text-brand-green opacity-40">0{index + 1}</span>
+      <h3 className="text-2xl font-bold text-brand-green mt-[-1rem]">{capability.title}</h3>
+      <p className="text-gray-600 leading-relaxed">{capability.description}</p>
+    </div>
+  );
 
-                  {capability.exploreFurtherVideos && capability.exploreFurtherVideos.length > 0 && (
-                    <div className="pt-4 border-t border-gray-200">
-                        <h5 className="text-sm font-semibold text-gray-500 mb-3">Unlock More:</h5>
-                        <div className="flex flex-wrap gap-3">
-                            {capability.exploreFurtherVideos.map((video) => (
-                                <button
-                                    key={video.id}
-                                    onClick={() => setActiveVideo(video)}
-                                    className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 transform hover:scale-105 ${
-                                        activeVideo.id === video.id
-                                            ? 'bg-brand-green text-white shadow-lg'
-                                            : 'bg-white text-gray-700 hover:bg-gray-200 border border-gray-200'
-                                    }`}
-                                >
-                                    {PlayIcon}
-                                    <span>{video.shortLabel}</span>
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-                  )}
+  const featureDetails = (
+    <div className="pt-4">
+      <h4 className="flex items-center gap-2 text-sm font-semibold text-gray-500 tracking-wider uppercase mb-3">
+        <SearchIcon />
+        <span>Feature Details</span>
+      </h4>
+      <div className="space-y-3">
+        {capability.details.map((detail) => (
+          <ExpandableDetail key={detail.title} detail={detail} />
+        ))}
+      </div>
+    </div>
+  );
+
+  const videoDisplay = (
+    <div>
+      {activeVideo.embedUrl ? (
+        <EmbeddedVideo url={activeVideo.embedUrl} />
+      ) : (
+        <VideoPlaceholder
+          label={activeVideo.label}
+          videoId={activeVideo.videoId}
+        />
+      )}
+      {totalVideos > 1 && (
+        <div className="mt-4 p-4 bg-gray-100 rounded-lg space-y-4 border border-gray-200">
+          <div>
+            <h5 className="text-sm font-semibold text-gray-500 mb-3">The Essentials:</h5>
+            <div className="flex flex-wrap gap-3">
+              {capability.videos.map((video) => (
+                <button
+                  key={video.id}
+                  onClick={() => setActiveVideo(video)}
+                  className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 transform hover:scale-105 ${
+                    activeVideo.id === video.id
+                      ? 'bg-brand-green text-white shadow-lg'
+                      : 'bg-white text-gray-700 hover:bg-gray-200 border border-gray-200'
+                  }`}
+                >
+                  {PlayIcon}
+                  <span>{video.shortLabel}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {capability.exploreFurtherVideos && capability.exploreFurtherVideos.length > 0 && (
+            <div className="pt-4 border-t border-gray-200">
+                <h5 className="text-sm font-semibold text-gray-500 mb-3">Unlock More:</h5>
+                <div className="flex flex-wrap gap-3">
+                    {capability.exploreFurtherVideos.map((video) => (
+                        <button
+                            key={video.id}
+                            onClick={() => setActiveVideo(video)}
+                            className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 transform hover:scale-105 ${
+                                activeVideo.id === video.id
+                                    ? 'bg-brand-green text-white shadow-lg'
+                                    : 'bg-white text-gray-700 hover:bg-gray-200 border border-gray-200'
+                            }`}
+                        >
+                            {PlayIcon}
+                            <span>{video.shortLabel}</span>
+                        </button>
+                    ))}
                 </div>
-              )}
             </div>
           )}
+        </div>
+      )}
+    </div>
+  );
 
-        {capability.enhancements && capability.enhancements.length > 0 && (
-          <div className="mt-4 pt-4 border-t border-gray-200">
-            <button
-              onClick={() => setEnhancementsOpen(!enhancementsOpen)}
-              className="w-full text-left flex items-center justify-between gap-2 text-sm font-semibold text-brand-green tracking-wider uppercase mb-2 p-2 -ml-2 rounded-md hover:bg-green-50 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green"
-              aria-expanded={enhancementsOpen}
-            >
-              <div className="flex items-center gap-2">
-                <MagicWandIcon />
-                <div className="flex-1">
-                  <span>2026 Enhancement Roadmap</span>
-                  <span className="block font-normal text-gray-500 normal-case text-xs tracking-normal mt-0.5">{capability.enhancements[0].title}</span>
-                </div>
-              </div>
-              <svg
-                className={`w-5 h-5 text-gray-500 transform transition-transform duration-300 ${enhancementsOpen ? 'rotate-180' : ''}`}
-                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-             <div
-                className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out"
-                style={{ gridTemplateRows: enhancementsOpen ? '1fr' : '0fr' }}
-              >
-                <div className="overflow-hidden">
-                  <div className="space-y-4 pt-2">
-                      {capability.enhancements.map(enh => (
-                          <EnhancementDisplay key={enh.title} enhancement={enh} />
-                      ))}
-                  </div>
-                </div>
+  const enhancementsDisplay = capability.enhancements && capability.enhancements.length > 0 && (
+    <div className="mt-4 pt-4 border-t border-gray-200">
+      <button
+        onClick={() => setEnhancementsOpen(!enhancementsOpen)}
+        className="w-full text-left flex items-center justify-between gap-2 text-sm font-semibold text-brand-green tracking-wider uppercase mb-2 p-2 -ml-2 rounded-md hover:bg-green-50 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green"
+        aria-expanded={enhancementsOpen}
+      >
+        <div className="flex items-center gap-2">
+          <MagicWandIcon />
+          <div className="flex-1">
+            <span>2026 Enhancement Roadmap</span>
+            <span className="block font-normal text-gray-500 normal-case text-xs tracking-normal mt-0.5">{capability.enhancements[0].title}</span>
+          </div>
+        </div>
+        <svg
+          className={`w-5 h-5 text-gray-500 transform transition-transform duration-300 ${enhancementsOpen ? 'rotate-180' : ''}`}
+          xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+       <div
+          className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out"
+          style={{ gridTemplateRows: enhancementsOpen ? '1fr' : '0fr' }}
+        >
+          <div className="overflow-hidden">
+            <div className="space-y-4 pt-2">
+                {capability.enhancements.map(enh => (
+                    <EnhancementDisplay key={enh.title} enhancement={enh} />
+                ))}
             </div>
           </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="grid md:grid-cols-5 gap-12 items-start">
+      {/* Column 1 */}
+      <div className={`md:col-span-2 space-y-4 ${isReversed ? 'md:order-2' : ''}`}>
+        {titleAndDescription}
+        <div className="hidden md:block">{featureDetails}</div>
+      </div>
+
+      {/* Column 2 */}
+      <div className={`md:col-span-3 ${isReversed ? 'md:order-1' : ''}`}>
+        {capability.visualType === 'diagram' ? (
+          <DiagramPlaceholder label={capability.visualLabel || 'System Diagram'} />
+        ) : (
+          videoDisplay
         )}
+        <div className="hidden md:block">{enhancementsDisplay}</div>
+        
+        {/* Mobile-only content here */}
+        <div className="md:hidden space-y-4 mt-8">
+          {featureDetails}
+          {enhancementsDisplay}
+        </div>
       </div>
     </div>
   );
