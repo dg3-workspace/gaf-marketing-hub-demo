@@ -53,8 +53,8 @@ const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
          return (
              <div className="bg-white p-6 rounded-lg border border-gray-200 h-full flex flex-col justify-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105">
                 <div className="flex justify-center -space-x-6 mb-6">
-                    <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg bg-gray-100 z-20 transform hover:scale-110 transition-transform"><TeamMemberImage src="/images/promo.png" alt="Promo" /></div>
-                    <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg bg-gray-100 z-10 transform hover:scale-110 transition-transform"><TeamMemberImage src="/images/promo 2.png" alt="Promo" /></div>
+                    <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg bg-gray-100 z-20 transform hover:scale-110 transition-transform"><TeamMemberImage src="/images/paul_groppe.jpg" alt="Paul Groppe" /></div>
+                    <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg bg-gray-100 z-10 transform hover:scale-110 transition-transform"><TeamMemberImage src="/images/donna_forbes.jpg" alt="Donna Forbes" /></div>
                 </div>
                 <h4 className="font-bold text-brand-gray text-lg">{member.name}</h4>
                 <p className="text-gray-600 text-sm leading-relaxed mt-2">{member.description}</p>
