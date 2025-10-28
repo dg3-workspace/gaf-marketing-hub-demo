@@ -7,12 +7,14 @@ import { EndUserExperienceSection } from './components/sections/EndUserExperienc
 import { AdminExperienceSection } from './components/sections/AdminExperienceSection';
 import { StrategicSupportSection } from './components/sections/StrategicSupportSection';
 import { MobileExperienceSection } from './components/sections/MobileExperienceSection';
+import { PasswordProtection } from './components/ui/PasswordProtection';
 import { useScrollSpy } from './hooks/useScrollSpy';
-import { SECTIONS } from './constants';
+import { SECTIONS, PAGE_PASSWORD } from './constants';
 import type { Section } from './types';
 
 const App: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(!PAGE_PASSWORD || PAGE_PASSWORD.trim() === '');
   
   const [observedElements, setObservedElements] = useState<HTMLElement[]>([]);
 
@@ -74,6 +76,14 @@ const App: React.FC = () => {
   const activeTopLevelIndex = SECTIONS.findIndex(s => s.id === activeSectionId || s.subsections?.some(sub => sub.id === activeSectionId));
   const progress = activeTopLevelIndex !== -1 ? ((activeTopLevelIndex + 1) / SECTIONS.length) * 100 : 0;
 
+  const handleAuthentication = () => {
+    setIsAuthenticated(true);
+  };
+
+  // Show password protection if password is set and user is not authenticated
+  if (PAGE_PASSWORD && PAGE_PASSWORD.trim() !== '' && !isAuthenticated) {
+    return <PasswordProtection onAuthenticated={handleAuthentication} />;
+  }
 
   return (
     <div className="flex min-h-screen">
