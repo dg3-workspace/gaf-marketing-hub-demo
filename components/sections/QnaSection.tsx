@@ -86,11 +86,33 @@ export const QnaSection: React.FC<QnaSectionProps> = ({ expandedId, onNavigate }
             />
             <div className="bg-white py-20 px-4 sm:px-8">
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 animate-fade-in-up">
-                    <Button variant="primary" size="lg">
+                    <Button 
+                        variant="primary" 
+                        size="lg"
+                        onClick={() => {
+                            const link = document.createElement('a');
+                            link.href = '/downloads/DG3 Follow Up Questions 1.pdf';
+                            link.download = 'DG3 Follow Up Questions 1.pdf';
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                        }}
+                    >
                         <DownloadIcon className="mr-3" />
                         Download DG3 Responses
                     </Button>
-                    <Button variant="outline" size="lg">
+                    <Button 
+                        variant="outline" 
+                        size="lg"
+                        onClick={() => {
+                            const link = document.createElement('a');
+                            link.href = '/downloads/DG3 - Additional Pricing Questions 10.28.xlsx';
+                            link.download = 'DG3 - Additional Pricing Questions 10.28.xlsx';
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                        }}
+                    >
                         <SheetIcon className="mr-3" />
                         Download additional pricing spreadsheet
                     </Button>
