@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { VideoPlaceholder } from '../ui/VideoPlaceholder';
+import { MOBILE_CONTRACTOR_VIDEOS, MOBILE_ADMIN_CAPABILITIES } from '../../constants';
+import type { VideoDetail, Capability } from '../../types';
 
 const PlayIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -10,50 +12,7 @@ const PlayIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
-interface MobileVideo {
-  id: string;
-  label: string;
-  shortLabel: string;
-  videoId?: string;
-  embedUrl?: string;
-}
-
-const contractorVideos: MobileVideo[] = [
-  { id: 'mobile-browsing-through-checkout', label: 'Mobile: Browsing Through Checkout', shortLabel: 'Browsing Through Checkout', embedUrl: 'https://www.loom.com/embed/8d37f88d98514704b8fe440c187aab2b' },
-];
-
-interface AdminMobileCapability {
-  title: string;
-  videos: MobileVideo[];
-  exploreFurtherVideos?: MobileVideo[];
-}
-
-const adminCapabilities: AdminMobileCapability[] = [
-  {
-    title: 'User & Content Management',
-    videos: [
-      { id: 'mobile-admin-products', label: 'Mobile Admin: Adding Products', shortLabel: 'Adding Products', embedUrl: 'https://www.loom.com/embed/484a2c1334d041c99790ece436a0adb0' },
-    ],
-  },
-  {
-    title: 'Approvals',
-    videos: [
-      { id: 'mobile-admin-budgets', label: 'Mobile Admin: Approving Over-Budget or Co-branded Materials', shortLabel: 'Approving Over-Budget or Co-branded Materials', embedUrl: 'https://www.loom.com/embed/d2a3ab1ca7ba4a5f9a13f8a4cd6b525e' },
-    ],
-  },
-  {
-    title: 'Analytics & Reporting',
-    videos: [
-      { id: 'mobile-admin-reporting', label: 'Mobile Admin: Reporting', shortLabel: 'Reporting', embedUrl: 'https://www.loom.com/embed/8832a7dc30664610b8d8c2870e48b753' },
-    ],
-    exploreFurtherVideos: [
-      { id: 'mobile-admin-sidekick', label: 'Mobile Admin: AI Sidekick', shortLabel: 'AI Sidekick', embedUrl: 'https://www.loom.com/embed/aa41848f13144340bc251a2e0e039e2a' },
-      { id: 'mobile-admin-liveview', label: 'Mobile Admin: Live View', shortLabel: 'Live View', embedUrl: 'https://www.loom.com/embed/db9472f55f24402a956835f61a735b5d' },
-    ]
-  }
-];
-
-const VideoSelectionButton: React.FC<{ video: MobileVideo; isActive: boolean; onClick: () => void; }> = ({ video, isActive, onClick }) => (
+const VideoSelectionButton: React.FC<{ video: VideoDetail; isActive: boolean; onClick: () => void; }> = ({ video, isActive, onClick }) => (
     <button
         onClick={onClick}
         className={`w-full text-left pl-4 pr-2 py-3 border-l-4 -ml-1 transition-all duration-200 flex items-center gap-3 ${
@@ -71,8 +30,8 @@ const VideoSelectionButton: React.FC<{ video: MobileVideo; isActive: boolean; on
 
 
 export const MobileExperienceSection: React.FC = () => {
-    const [activeContractorVideo, setActiveContractorVideo] = useState<MobileVideo>(contractorVideos[0]);
-    const [activeAdminVideo, setActiveAdminVideo] = useState<MobileVideo>(adminCapabilities[0].videos[0]);
+    const [activeContractorVideo, setActiveContractorVideo] = useState<VideoDetail>(MOBILE_CONTRACTOR_VIDEOS[0]);
+    const [activeAdminVideo, setActiveAdminVideo] = useState<VideoDetail>(MOBILE_ADMIN_CAPABILITIES[0].videos[0]);
 
     return (
         <section className="min-h-screen bg-patterned py-20 px-4 sm:px-8 flex items-center">
@@ -96,7 +55,7 @@ export const MobileExperienceSection: React.FC = () => {
                                 <div className="pt-4">
                                     <h4 className="text-md font-bold text-brand-gray mb-3">Demonstration:</h4>
                                     <div className="space-y-2 border-l-4 border-gray-200">
-                                       {contractorVideos.map((video) => (
+                                       {MOBILE_CONTRACTOR_VIDEOS.map((video) => (
                                             <VideoSelectionButton
                                                 key={video.id}
                                                 video={video}
@@ -133,9 +92,9 @@ export const MobileExperienceSection: React.FC = () => {
                                     Full administrative power on the go. Manage users, approve orders, and view real-time analytics from any device, without compromise.
                                 </p>
                                 <div className="space-y-6 pt-4">
-                                    {adminCapabilities.map(cat => (
-                                        <div key={cat.title}>
-                                            <h4 className="text-md font-bold text-brand-gray mb-3">{cat.title}</h4>
+                                    {MOBILE_ADMIN_CAPABILITIES.map(cat => (
+                                        <div key={cat.id}>
+                                            <h4 className="text-md font-bold text-brand-gray mb-3">{cat.title.replace(' (Mobile)','')}</h4>
                                             <div className="space-y-2 border-l-4 border-gray-200">
                                                 {cat.videos.map(video => (
                                                     <VideoSelectionButton

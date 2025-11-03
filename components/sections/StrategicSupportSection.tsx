@@ -48,7 +48,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
              </div>
         )
     }
-
+    
     if (member.isCompact && member.name === 'Platform Developer') {
          return (
              <div className="bg-white p-6 rounded-lg border border-gray-200 h-full flex flex-col justify-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105">
@@ -63,7 +63,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
     } else if (member.isCompact && member.name === 'Technical Developer') {
          return (
              <div className="bg-white p-6 rounded-lg border border-gray-200 h-full flex flex-col justify-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105">
-                <div className="w-48 h-auto mx-auto mb-4">{member.imageComponent}</div>
+                <div className="w-64 h-auto mx-auto mb-4">{member.imageComponent}</div>
                 <h4 className="font-bold text-brand-gray text-lg">{member.name}</h4>
                 <p className="text-gray-600 text-sm leading-relaxed mt-2">{member.description}</p>
             </div>
@@ -416,7 +416,7 @@ export const StrategicSupportSection: React.FC = () => {
   return (
     <>
       <SectionHeader 
-        title="Part 3: Partnership & Vision"
+        title="Partnership & Vision"
         subtitle="Our commitment extends beyond technology. This is about a dedicated partnership, a clear roadmap, and a shared vision for GAF's success."
       />
       <SectionWrapper id="support-vision-ecosystem">

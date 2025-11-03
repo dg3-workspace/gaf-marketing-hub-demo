@@ -1,22 +1,21 @@
-
 import React, { useState, useMemo, useEffect } from 'react';
 import { Sidebar } from './components/layout/Sidebar';
 import { IntroductionSection } from './components/sections/IntroductionSection';
+import { QnaSection } from './components/sections/QnaSection';
 import { IntegrationLayerSection } from './components/sections/IntegrationLayerSection';
 import { EndUserExperienceSection } from './components/sections/EndUserExperienceSection';
 import { AdminExperienceSection } from './components/sections/AdminExperienceSection';
 import { StrategicSupportSection } from './components/sections/StrategicSupportSection';
 import { MobileExperienceSection } from './components/sections/MobileExperienceSection';
-import { PasswordProtection } from './components/ui/PasswordProtection';
 import { useScrollSpy } from './hooks/useScrollSpy';
-import { SECTIONS, PAGE_PASSWORD } from './constants';
+import { SECTIONS, QNA_DATA } from './constants';
 import type { Section } from './types';
+import { TransitionSection } from './components/sections/TransitionSection';
 
 const App: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(!PAGE_PASSWORD || PAGE_PASSWORD.trim() === '');
-  
   const [observedElements, setObservedElements] = useState<HTMLElement[]>([]);
+  const [expandedQnaId, setExpandedQnaId] = useState<string | null>(null);
 
   const sectionRefs = useMemo(() => {
       const refs: { [id: string]: React.RefObject<HTMLDivElement> } = {};
@@ -40,6 +39,11 @@ const App: React.FC = () => {
                   });
               }
           });
+          // Also observe QnA items for scrollspy
+          QNA_DATA.forEach(qna => {
+            const qnaEl = document.getElementById(`qna-item-${qna.id}`);
+            if (qnaEl && !allElements.includes(qnaEl)) allElements.push(qnaEl);
+          });
           setObservedElements([...allElements]);
       });
       
@@ -54,18 +58,32 @@ const App: React.FC = () => {
   );
   
   const handleNavigate = (id: string) => {
-    const targetElement = document.getElementById(id);
+    const isQnaLink = QNA_DATA.some(q => q.id === id);
+    if (isQnaLink) {
+        setExpandedQnaId(id);
+    } else {
+        setExpandedQnaId(null);
+    }
+
+    const targetElement = document.getElementById(isQnaLink ? `qna-item-${id}` : id);
     if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-      setSidebarOpen(false);
+        // Scroll the main section into view first for context if it's a QnA link
+        if (isQnaLink) {
+            document.getElementById('qna')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        setTimeout(() => {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+            setSidebarOpen(false);
+        }, isQnaLink ? 150 : 0);
     }
   };
 
   const sectionsComponents: Record<string, React.ReactElement> = {
     introduction: <IntroductionSection onNavigate={handleNavigate} />,
+    qna: <QnaSection expandedId={expandedQnaId} onNavigate={handleNavigate} />,
     'integration-layer': <IntegrationLayerSection />,
     'end-user-exp': <EndUserExperienceSection />,
     'admin-exp': <AdminExperienceSection />,
@@ -73,23 +91,24 @@ const App: React.FC = () => {
     'mobile-exp': <MobileExperienceSection />,
   };
   
-  const activeTopLevelIndex = SECTIONS.findIndex(s => s.id === activeSectionId || s.subsections?.some(sub => sub.id === activeSectionId));
+  const findActiveTopLevelId = () => {
+    const qnaItem = QNA_DATA.find(q => `qna-item-${q.id}` === activeSectionId);
+    if (qnaItem) return 'qna';
+
+    const section = SECTIONS.find(s => s.id === activeSectionId || s.subsections?.some(sub => sub.id === activeSectionId));
+    return section?.id;
+  };
+  
+  const activeTopLevelId = findActiveTopLevelId();
+  const activeTopLevelIndex = SECTIONS.findIndex(s => s.id === activeTopLevelId);
   const progress = activeTopLevelIndex !== -1 ? ((activeTopLevelIndex + 1) / SECTIONS.length) * 100 : 0;
 
-  const handleAuthentication = () => {
-    setIsAuthenticated(true);
-  };
-
-  // Show password protection if password is set and user is not authenticated
-  if (PAGE_PASSWORD && PAGE_PASSWORD.trim() !== '' && !isAuthenticated) {
-    return <PasswordProtection onAuthenticated={handleAuthentication} />;
-  }
 
   return (
     <div className="flex min-h-screen">
       <Sidebar 
         sections={SECTIONS} 
-        activeSectionId={activeSectionId} 
+        activeSectionId={activeSectionId.replace('qna-item-', '')} 
         onNavigate={handleNavigate} 
         isOpen={sidebarOpen}
         setIsOpen={setSidebarOpen}
@@ -120,6 +139,7 @@ const App: React.FC = () => {
               <div id={section.id} ref={sectionRefs[section.id]}>
                 {sectionsComponents[section.id]}
               </div>
+              {section.id === 'qna' && <TransitionSection />}
             </React.Fragment>
           ))}
         </div>

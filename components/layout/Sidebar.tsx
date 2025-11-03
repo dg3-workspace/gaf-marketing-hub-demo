@@ -17,13 +17,6 @@ const ChevronDownIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const PlayCircleIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <circle cx="12" cy="12" r="10"></circle>
-    <polygon points="10 8 16 12 10 16 10 8"></polygon>
-  </svg>
-);
-
 const LibraryIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
@@ -34,8 +27,9 @@ const LibraryIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export const Sidebar: React.FC<SidebarProps> = ({ sections, activeSectionId, onNavigate, isOpen, setIsOpen }) => {
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
-  const [isDg3VideoOpen, setIsDg3VideoOpen] = useState(false);
   const [isVideoLibraryOpen, setIsVideoLibraryOpen] = useState(false);
+  
+  const indentedSectionIds = ['integration-layer', 'end-user-exp', 'admin-exp', 'support'];
 
   useEffect(() => {
     const parentSection = sections.find(s => s.subsections?.some(sub => sub.id === activeSectionId) || s.id === activeSectionId);
@@ -65,7 +59,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ sections, activeSectionId, onN
       
       <aside className={`fixed top-0 left-0 h-full w-72 bg-brand-green border-r border-green-700 text-white transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300 ease-in-out z-50 flex flex-col`}>
         <div className="p-6 border-b border-white/20">
-           {/* GAF Logo Placeholder */}
+           {/* DG3 Logo Placeholder */}
             <div className="mb-4">
               <div className="w-[80px] h-[80px] flex items-center justify-center text-brand-gray text-2xl font-bold tracking-widest shadow-inner">
                   <img src="/images/gaf_logo_red.png" alt="GAF Logo" className="max-w-full max-h-full object-contain" />
@@ -73,7 +67,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ sections, activeSectionId, onN
             </div>
             <div>
                 <h1 className="text-xl font-bold text-white">GAF Marketing Hub</h1>
-                <p className="text-sm text-green-100 mt-1">Self Guided Demonstration</p>
+                <p className="text-sm text-green-100 mt-1">Comprehensive RFP Response &amp; Interactive Platform Briefing</p>
             </div>
         </div>
         <nav className="flex-1 p-4 overflow-y-auto">
@@ -82,19 +76,19 @@ export const Sidebar: React.FC<SidebarProps> = ({ sections, activeSectionId, onN
               const isSectionActive = activeSectionId === section.id;
               const isChildActive = section.subsections?.some(sub => sub.id === activeSectionId) ?? false;
               const isExpanded = expandedSections[section.id];
+              const isIndented = indentedSectionIds.includes(section.id);
               
               return (
                 <li key={section.id} className="mb-1">
                   <button
                     onClick={() => handleSectionClick(section)}
-                    className={`w-full text-left flex items-center justify-between gap-3 px-4 py-3 rounded-md transition-all duration-200 ${
+                    className={`w-full text-left flex items-center justify-between gap-3 py-3 rounded-md transition-all duration-200 ${
                       isSectionActive || isChildActive
                         ? 'bg-white text-brand-green font-semibold shadow-lg'
                         : 'hover:bg-black/10'
-                    }`}
+                    } ${isIndented ? 'pl-8 text-sm' : 'px-4'}`}
                   >
                     <div className="flex items-center gap-3 flex-1 min-w-0">
-                      {/* FIX: Remove incorrect type cast on icon to allow props to be passed to cloneElement. */}
                       {React.cloneElement(section.icon, { className: 'w-5 h-5 flex-shrink-0' })}
                       <span className="whitespace-normal">{section.title}</span>
                     </div>
@@ -142,14 +136,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ sections, activeSectionId, onN
             <LibraryIcon className="w-5 h-5 flex-shrink-0" />
             <span className="text-sm font-medium">Video Library</span>
           </button>
-          <button
-            onClick={() => setIsDg3VideoOpen(true)}
-            className="w-full text-left flex items-center gap-3 px-3 py-3 rounded-md transition-all duration-200 hover:bg-black/10"
-            aria-label="Learn more about DG3"
-          >
-            <PlayCircleIcon className="w-5 h-5 flex-shrink-0" />
-            <span className="text-sm font-medium">Learn more about DG3</span>
-          </button>
         </div>
 
         <div className="p-6 border-t border-white/20 text-center">
@@ -164,24 +150,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ sections, activeSectionId, onN
         isOpen={isVideoLibraryOpen}
         onClose={() => setIsVideoLibraryOpen(false)}
       />
-
-      <Modal
-        isOpen={isDg3VideoOpen}
-        onClose={() => setIsDg3VideoOpen(false)}
-        title="DG3: A Leader in Global Communications"
-        size="xlarge"
-      >
-        <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
-          <iframe
-            className="w-full h-full"
-            src={isDg3VideoOpen ? "https://www.youtube.com/embed/dg3-overview?autoplay=1&rel=0" : ""}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </Modal>
     </>
   );
 };
