@@ -186,12 +186,11 @@ interface IntroductionSectionProps {
 }
 
 export const IntroductionSection: React.FC<IntroductionSectionProps> = ({ onNavigate }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<any>(null);
 
   const handleTimestampClick = (seconds: number) => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = seconds;
-      videoRef.current.play();
+    if (videoRef.current && typeof videoRef.current.seekTo === 'function') {
+      videoRef.current.seekTo(seconds, 'seconds');
     }
   };
 
@@ -210,14 +209,12 @@ export const IntroductionSection: React.FC<IntroductionSectionProps> = ({ onNavi
         <div className="max-w-6xl mx-auto mt-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             <div className="rounded-lg overflow-hidden shadow-2xl border-4 border-gray-200 mb-8">
               <div className="relative pt-[56.25%] h-0">
-                <video
-                  ref={videoRef}
-                  controls
+                <iframe
+                  src="https://www.loom.com/embed/79f1615ec9c34f869acddad5ce3fe2cc"
+                  frameBorder="0"
+                  allowFullScreen
                   className="absolute top-0 left-0 w-full h-full"
-                  src="/videos/The_Complete_Demonstration.mp4"
-                >
-                  Your browser does not support the video tag.
-                </video>
+                ></iframe>
               </div>
             </div>
             

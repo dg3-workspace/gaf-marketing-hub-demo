@@ -7,13 +7,23 @@ import { EndUserExperienceSection } from './components/sections/EndUserExperienc
 import { AdminExperienceSection } from './components/sections/AdminExperienceSection';
 import { StrategicSupportSection } from './components/sections/StrategicSupportSection';
 import { MobileExperienceSection } from './components/sections/MobileExperienceSection';
+import { PasswordProtection } from './components/ui/PasswordProtection';
 import { useScrollSpy } from './hooks/useScrollSpy';
-import { SECTIONS, QNA_DATA } from './constants';
+import { SECTIONS, QNA_DATA, PAGE_PASSWORD } from './constants';
 import type { Section } from './types';
 import { TransitionSection } from './components/sections/TransitionSection';
 
 const App: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    // Check if password is required
+    if (!PAGE_PASSWORD || PAGE_PASSWORD.trim() === '') return true;
+    
+    // Check localStorage for authentication
+    const stored = localStorage.getItem('gaf-hub-authenticated');
+    return stored === 'true';
+  });
+
   const [observedElements, setObservedElements] = useState<HTMLElement[]>([]);
   const [expandedQnaId, setExpandedQnaId] = useState<string | null>(null);
 
@@ -103,6 +113,15 @@ const App: React.FC = () => {
   const activeTopLevelIndex = SECTIONS.findIndex(s => s.id === activeTopLevelId);
   const progress = activeTopLevelIndex !== -1 ? ((activeTopLevelIndex + 1) / SECTIONS.length) * 100 : 0;
 
+  const handleAuthentication = () => {
+    setIsAuthenticated(true);
+    localStorage.setItem('gaf-hub-authenticated', 'true');
+  };
+
+  // Show password protection if password is set and user is not authenticated
+  if (PAGE_PASSWORD && PAGE_PASSWORD.trim() !== '' && !isAuthenticated) {
+    return <PasswordProtection onAuthenticated={handleAuthentication} />;
+  }
 
   return (
     <div className="flex min-h-screen">
