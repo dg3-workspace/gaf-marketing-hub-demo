@@ -38,8 +38,8 @@ export const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onAuthen
         <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* GAF Logo/Header */}
           <div className="text-center mb-8">
-            <div className="mx-auto w-16 h-16 bg-red-600 rounded-xl flex items-center justify-center mb-4">
-              <img src="/images/gaf_logo_red.png" alt="GAF Logo" className="max-w-full max-h-full object-contain" />
+            <div className="w-[100px] h-[50px] mx-auto mb-3">
+              <img src="/images/dg3-logo-color.svg" alt="DG3 Logo" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
               GAF Marketing Hub Demo
@@ -72,7 +72,7 @@ export const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onAuthen
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-red-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-brand-green text-white py-3 px-4 rounded-lg font-medium hover:bg-brand-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
