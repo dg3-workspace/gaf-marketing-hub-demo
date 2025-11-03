@@ -61,8 +61,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ sections, activeSectionId, onN
         <div className="p-6 border-b border-white/20">
            {/* DG3 Logo Placeholder */}
             <div className="mb-4">
-              <div className="w-[80px] h-[80px] flex items-center justify-center text-brand-gray text-2xl font-bold tracking-widest shadow-inner">
-                  <img src="/images/gaf_logo_red.png" alt="GAF Logo" className="max-w-full max-h-full object-contain" />
+              <div className="w-[100px] h-[60px] flex items-center justify-center text-brand-gray text-2xl font-bold tracking-widest">
+                  <img src="/images/DG3-logo-white.svg" alt="DG3 Logo" />
               </div>
             </div>
             <div>
