@@ -113,16 +113,8 @@ export const VideoPlaceholder: React.FC<VideoPlaceholderProps> = ({ label, class
     }
 }, [videoId, embedUrl, label]);
 
-  // Determine if this is a direct video file (mp4, webm, etc.) or an embed
-  const isDirectVideo = embedUrl && (
-    embedUrl.includes('.mp4') || 
-    embedUrl.includes('.webm') || 
-    embedUrl.includes('.ogg') ||
-    embedUrl.startsWith('/videos/')
-  );
-  
   let videoUrl = '';
-  if (embedUrl && !isDirectVideo) {
+  if (embedUrl) {
     try {
       const url = new URL(embedUrl);
       url.searchParams.set('autoplay', '1');
@@ -130,7 +122,7 @@ export const VideoPlaceholder: React.FC<VideoPlaceholderProps> = ({ label, class
     } catch (e) {
       videoUrl = embedUrl; // fallback if URL is malformed
     }
-  } else if (!isDirectVideo) {
+  } else {
     const effectiveVideoId = videoId || '4cQNtjEzRYo';
     videoUrl = `https://www.youtube.com/embed/${effectiveVideoId}?autoplay=1&rel=0`;
   }
@@ -179,28 +171,14 @@ export const VideoPlaceholder: React.FC<VideoPlaceholderProps> = ({ label, class
         size="xlarge"
       >
         <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
-          {isDirectVideo ? (
-            <video
-              className="w-full h-full"
-              src={embedUrl}
-              controls
-              autoPlay
-              controlsList="nodownload"
-              crossOrigin="anonymous"
-              playsInline
-            >
-              Your browser does not support the video tag.
-            </video>
-          ) : (
-            <iframe
-              className="w-full h-full"
-              src={isModalOpen ? videoUrl : ''} 
-              title="Video Player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-          )}
+          <iframe
+            className="w-full h-full"
+            src={isModalOpen ? videoUrl : ''} 
+            title="Video Player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
         </div>
       </Modal>
     </>
