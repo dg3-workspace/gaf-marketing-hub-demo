@@ -24,11 +24,25 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({ video, onClo
     return url.includes('loom.com');
   };
 
+  const encodeVideoUrl = (url: string): string => {
+    // Split the URL into path segments
+    const parts = url.split('/');
+    // Encode only the filename (last part) to handle spaces properly
+    const encodedParts = parts.map((part, index) => {
+      if (index === parts.length - 1) {
+        // This is the filename - encode it
+        return encodeURIComponent(part);
+      }
+      return part;
+    });
+    return encodedParts.join('/');
+  };
+
   const getUrl = (v: VideoDetail): string => {
     if (v.embedUrl) {
       // Check if it's a local video file
       if (isLocalVideo(v.embedUrl)) {
-        return v.embedUrl;
+        return encodeVideoUrl(v.embedUrl);
       }
       // It's a Loom video - append autoplay
       if (isLoomVideo(v.embedUrl)) {

@@ -40,11 +40,24 @@ const EnhancementDisplay: React.FC<{ enhancement: CapabilityDetail }> = ({ enhan
 const EmbeddedVideo: React.FC<{ url: string }> = ({ url }) => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
+  const encodeVideoUrl = (videoUrl: string): string => {
+    const parts = videoUrl.split('/');
+    const encodedParts = parts.map((part, index) => {
+      if (index === parts.length - 1) {
+        return encodeURIComponent(part);
+      }
+      return part;
+    });
+    return encodedParts.join('/');
+  };
+
   React.useEffect(() => {
     console.log('EmbeddedVideo: URL changed to', url);
     if (videoRef.current) {
       console.log('EmbeddedVideo: Setting video src and loading...');
-      videoRef.current.src = url;
+      const encodedUrl = encodeVideoUrl(url);
+      console.log('EmbeddedVideo: Encoded URL:', encodedUrl);
+      videoRef.current.src = encodedUrl;
       videoRef.current.load();
     }
   }, [url]);
