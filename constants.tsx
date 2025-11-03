@@ -82,7 +82,7 @@ export const END_USER_CAPABILITIES: Capability[] = [
         title: 'Persona Rules Drive Experience',
         description: "The platform uses GAF’s Okta SSO to determine a user's persona, which immediately tailors the entire experience. This powerful, rule-based system presents specific product catalogs and promotional offers relevant to a user's role, region, and certification level. This isn’t just one storefront; it's a series of curated views tailored to each user group, ensuring content is always relevant from the moment they log in.",
         videos: [
-            { id: 'video-certified-contractor', label: 'Video: Certified Contractor Experience', shortLabel: 'Cert. Contractor', embedUrl: 'https://www.loom.com/embed/e108aad6afb640949f9c5d1ce78a1713' },
+            { id: 'video-certified-contractor', label: 'Video: Certified Contractor Experience', shortLabel: 'Cert. Contractor', embedUrl: 'https://www.loom.com/embed/6ed9e5dbc544406995cb54737228050e' },
             { id: 'video-power-buyer', label: 'Video: Power Buyer Experience', shortLabel: 'Power Buyer', embedUrl: 'https://www.loom.com/embed/b62026b9d034422d9c1470e0f1bd8801' }
         ],
         details: [

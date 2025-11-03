@@ -1,20 +1,5 @@
 
-import React, { useState, useRef } from 'react';
-import ReactPlayer from 'react-player';
-
-// Wrapper to handle ReactPlayer with proper types
-const VideoPlayer: any = ReactPlayer;
-
-// Helper function to convert timestamp string to seconds
-const parseTimestamp = (timestamp: string): number => {
-  const parts = timestamp.split(':').map(Number);
-  if (parts.length === 2) {
-    return parts[0] * 60 + parts[1]; // MM:SS
-  } else if (parts.length === 3) {
-    return parts[0] * 3600 + parts[1] * 60 + parts[2]; // HH:MM:SS
-  }
-  return 0;
-};
+import React, { useState } from 'react';
 
 // Icons for the new supplemental info panel
 const ClockIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -129,18 +114,8 @@ const clarifications = [
   },
 ];
 
-interface ClarificationTabsProps {
-  onTimestampClick: (seconds: number) => void;
-}
-
-const ClarificationTabs: React.FC<ClarificationTabsProps> = ({ onTimestampClick }) => {
+const ClarificationTabs: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleTabClick = (index: number) => {
-    setActiveIndex(index);
-    const seconds = parseTimestamp(clarifications[index].timestamp);
-    onTimestampClick(seconds);
-  };
 
   return (
     <div className="bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden text-left">
@@ -157,7 +132,7 @@ const ClarificationTabs: React.FC<ClarificationTabsProps> = ({ onTimestampClick 
                 {clarifications.map((item, index) => (
                     <button
                         key={index}
-                        onClick={() => handleTabClick(index)}
+                        onClick={() => setActiveIndex(index)}
                         className={`px-3 py-2 text-sm rounded-lg text-center transition-all duration-200 transform hover:-translate-y-0.5 ${
                             activeIndex === index 
                             ? 'bg-brand-green text-white shadow-md' 
@@ -186,35 +161,6 @@ interface IntroductionSectionProps {
 }
 
 export const IntroductionSection: React.FC<IntroductionSectionProps> = ({ onNavigate }) => {
-  const playerRef = useRef<any>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-
-  // Load YouTube iframe API
-  React.useEffect(() => {
-    const tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-
-    (window as any).onYouTubeIframeAPIReady = () => {
-      playerRef.current = new (window as any).YT.Player('youtube-player', {
-        videoId: 'TLBaHGThWXs',
-        playerVars: {
-          controls: 1,
-          modestbranding: 1,
-          rel: 0,
-        },
-      });
-    };
-  }, []);
-
-  const handleTimestampClick = (seconds: number) => {
-    if (playerRef.current && playerRef.current.seekTo) {
-      playerRef.current.seekTo(seconds, true);
-      playerRef.current.playVideo();
-    }
-  };
-
   return (
     <section className="min-h-screen flex items-center justify-center p-4 sm:p-8 bg-patterned">
       <div className="container mx-auto text-center">
@@ -230,15 +176,16 @@ export const IntroductionSection: React.FC<IntroductionSectionProps> = ({ onNavi
         <div className="max-w-6xl mx-auto mt-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             <div className="rounded-lg overflow-hidden shadow-2xl border-4 border-gray-200 mb-8">
               <div className="relative pt-[56.25%] h-0">
-                <div
-                  id="youtube-player"
-                  ref={iframeRef}
+                <iframe
+                  src="https://www.loom.com/embed/79f1615ec9c34f869acddad5ce3fe2cc"
+                  frameBorder="0"
+                  allowFullScreen
                   className="absolute top-0 left-0 w-full h-full"
-                ></div>
+                ></iframe>
               </div>
             </div>
             
-            <ClarificationTabs onTimestampClick={handleTimestampClick} />
+            <ClarificationTabs />
         </div>
         
       </div>

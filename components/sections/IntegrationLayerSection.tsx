@@ -35,7 +35,7 @@ export const IntegrationLayerSection: React.FC = () => {
                     <div className="md:col-span-3 rounded-lg overflow-hidden shadow-2xl">
                         <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
                             <iframe 
-                                src="https://www.youtube.com/embed/Z51ZZjkaPCQ" 
+                                src="https://www.loom.com/embed/dc9e44d22acb4ab7b67900993f6ab1e2" 
                                 frameBorder="0" 
                                 allowFullScreen 
                                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>

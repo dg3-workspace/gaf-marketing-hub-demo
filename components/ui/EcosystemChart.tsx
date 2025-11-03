@@ -86,7 +86,7 @@ export const EcosystemChart: React.FC = () => {
         <div className="relative z-10">
             <div className="text-center mb-12">
                 <h2 className="text-3xl font-extrabold text-brand-gray">The DG3 Managed Ecosystem</h2>
-                <p className="text-gray-600 mt-2 max-w-3xl mx-auto">It's critical to understand that the GAF Marketing Hub is not a single platform, but a complex, interconnected system. This chart provides a visual breakdown of the architecture, key components, and management responsibilities.</p>
+                <p className="text-gray-600 mt-2 max-w-3xl mx-auto">It's critical to understand that the GAF Marketing Hub is not a single platform, but a complex, interconnected system. The information below provides a visual breakdown of the architecture, key components, and management responsibilities.</p>
             </div>
 
             <div className="relative">

@@ -48,7 +48,6 @@ const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
              </div>
         )
     }
-    
     if (member.isCompact && member.name === 'Platform Developer') {
          return (
              <div className="bg-white p-6 rounded-lg border border-gray-200 h-full flex flex-col justify-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105">
@@ -77,7 +76,6 @@ const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
             </div>
          )
     }
-    
     return (
         <div className="p-4 rounded-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-50/50 hover:scale-[1.02]">
             <div className="flex items-start gap-6">
@@ -109,18 +107,12 @@ const TeamSection: React.FC<{ team: Team }> = ({ team }) => {
     const commonCardClasses = "transition-all duration-300 hover:shadow-xl hover:scale-105";
 
     if (team.id === 'team-leadership') {
-        const topRow = team.members.slice(0, 2);
-        const bottomRow = team.members.slice(2);
-
         return (
             <div className="max-w-6xl mx-auto mb-16">
                 <h3 className="text-2xl font-bold text-center text-brand-green mb-10">{team.title}</h3>
                 <div className={`p-8 rounded-lg ${commonCardClasses}`}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 mb-10">
-                        {topRow.map(member => <TeamMemberCard key={member.name} member={member} />)}
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
-                        {bottomRow.map(member => <TeamMemberCard key={member.name} member={member} />)}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                        {team.members.map(member => <TeamMemberCard key={member.name} member={member} />)}
                     </div>
                 </div>
             </div>

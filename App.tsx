@@ -15,6 +15,9 @@ import { TransitionSection } from './components/sections/TransitionSection';
 
 const App: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [observedElements, setObservedElements] = useState<HTMLElement[]>([]);
+  const [expandedQnaId, setExpandedQnaId] = useState<string | null>(null);
+
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     // Check if password is required
     if (!PAGE_PASSWORD || PAGE_PASSWORD.trim() === '') return true;
@@ -23,9 +26,6 @@ const App: React.FC = () => {
     const stored = localStorage.getItem('gaf-hub-authenticated');
     return stored === 'true';
   });
-
-  const [observedElements, setObservedElements] = useState<HTMLElement[]>([]);
-  const [expandedQnaId, setExpandedQnaId] = useState<string | null>(null);
 
   const sectionRefs = useMemo(() => {
       const refs: { [id: string]: React.RefObject<HTMLDivElement> } = {};
