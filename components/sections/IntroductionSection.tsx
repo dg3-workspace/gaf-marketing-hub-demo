@@ -1,9 +1,5 @@
 
 import React, { useState, useRef } from 'react';
-import ReactPlayer from 'react-player';
-
-// Wrapper to handle ReactPlayer with proper types
-const VideoPlayer: any = ReactPlayer;
 
 // Helper function to convert timestamp string to seconds
 const parseTimestamp = (timestamp: string): number => {
@@ -186,32 +182,12 @@ interface IntroductionSectionProps {
 }
 
 export const IntroductionSection: React.FC<IntroductionSectionProps> = ({ onNavigate }) => {
-  const playerRef = useRef<any>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-
-  // Load YouTube iframe API
-  React.useEffect(() => {
-    const tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-
-    (window as any).onYouTubeIframeAPIReady = () => {
-      playerRef.current = new (window as any).YT.Player('youtube-player', {
-        videoId: 'TLBaHGThWXs',
-        playerVars: {
-          controls: 1,
-          modestbranding: 1,
-          rel: 0,
-        },
-      });
-    };
-  }, []);
+  const playerRef = useRef<HTMLVideoElement>(null);
 
   const handleTimestampClick = (seconds: number) => {
-    if (playerRef.current && playerRef.current.seekTo) {
-      playerRef.current.seekTo(seconds, true);
-      playerRef.current.playVideo();
+    if (playerRef.current) {
+      playerRef.current.currentTime = seconds;
+      playerRef.current.play();
     }
   };
 
@@ -229,13 +205,16 @@ export const IntroductionSection: React.FC<IntroductionSectionProps> = ({ onNavi
 
         <div className="max-w-6xl mx-auto mt-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             <div className="rounded-lg overflow-hidden shadow-2xl border-4 border-gray-200 mb-8">
-              <div className="relative pt-[56.25%] h-0">
-                <div
-                  id="youtube-player"
-                  ref={iframeRef}
-                  className="absolute top-0 left-0 w-full h-full"
-                ></div>
-              </div>
+              <video
+                ref={playerRef}
+                className="w-full h-full"
+                controls
+                controlsList="nodownload"
+                playsInline
+              >
+                <source src="/videos/The_Complete_Demonstration.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
             
             <ClarificationTabs onTimestampClick={handleTimestampClick} />

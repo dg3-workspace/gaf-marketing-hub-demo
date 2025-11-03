@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { INTEGRATION_LAYER_CAPABILITY } from '../../constants';
 import { ExpandableDetail } from '../ui/ExpandableDetail';
 
@@ -8,6 +8,7 @@ const SearchIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://
 
 export const IntegrationLayerSection: React.FC = () => {
     const capability = INTEGRATION_LAYER_CAPABILITY;
+    const playerRef = useRef<HTMLVideoElement>(null);
 
     return (
         <section className="min-h-screen bg-patterned py-20 px-8 flex items-center">
@@ -33,13 +34,17 @@ export const IntegrationLayerSection: React.FC = () => {
                         </div>
                     </div>
                     <div className="md:col-span-3 rounded-lg overflow-hidden shadow-2xl">
-                        <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-                            <iframe 
-                                src="https://www.youtube.com/embed/Z51ZZjkaPCQ" 
-                                frameBorder="0" 
-                                allowFullScreen 
-                                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-                            </iframe>
+                        <div className="aspect-video w-full">
+                            <video
+                                ref={playerRef}
+                                className="w-full h-full"
+                                controls
+                                controlsList="nodownload"
+                                playsInline
+                            >
+                                <source src="/videos/The_DG3_Integration_Layer.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
                 </div>

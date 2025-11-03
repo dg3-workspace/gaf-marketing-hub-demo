@@ -119,7 +119,7 @@ const TeamSection: React.FC<{ team: Team }> = ({ team }) => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 mb-10">
                         {topRow.map(member => <TeamMemberCard key={member.name} member={member} />)}
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                         {bottomRow.map(member => <TeamMemberCard key={member.name} member={member} />)}
                     </div>
                 </div>

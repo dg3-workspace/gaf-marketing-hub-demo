@@ -42,10 +42,10 @@ export const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onAuthen
               <img src="/images/dg3-logo-color.svg" alt="DG3 Logo" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              GAF Marketing Hub Demo
+              GAF Marketing Hub RFP Responses
             </h1>
             <p className="text-gray-600">
-              Enter the password to access the demo
+              Enter the password to access our RFP responses
             </p>
           </div>
 

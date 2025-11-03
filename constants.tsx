@@ -82,8 +82,8 @@ export const END_USER_CAPABILITIES: Capability[] = [
         title: 'Persona Rules Drive Experience',
         description: "The platform uses GAF’s Okta SSO to determine a user's persona, which immediately tailors the entire experience. This powerful, rule-based system presents specific product catalogs and promotional offers relevant to a user's role, region, and certification level. This isn’t just one storefront; it's a series of curated views tailored to each user group, ensuring content is always relevant from the moment they log in.",
         videos: [
-            { id: 'video-certified-contractor', label: 'Video: Certified Contractor Experience', shortLabel: 'Cert. Contractor', embedUrl: 'https://www.loom.com/embed/e108aad6afb640949f9c5d1ce78a1713' },
-            { id: 'video-power-buyer', label: 'Video: Power Buyer Experience', shortLabel: 'Power Buyer', embedUrl: 'https://www.loom.com/embed/b62026b9d034422d9c1470e0f1bd8801' }
+            { id: 'video-certified-contractor', label: 'Video: Certified Contractor Experience', shortLabel: 'Cert. Contractor', embedUrl: '/videos/01-The Essentails-Cert_Contractor.mp4' },
+            { id: 'video-power-buyer', label: 'Video: Power Buyer Experience', shortLabel: 'Power Buyer', embedUrl: '/videos/01_The Essentials_Power_Buyer.mp4' }
         ],
         details: [
             { title: 'Dynamic Content & Catalogs', description: 'The primary promotional banner, hero banner, special offer sections, product categories, and available items all update dynamically based on user persona and region to ensure relevance.', icon: <TargetIcon /> },
@@ -105,7 +105,7 @@ This evolution turns the GAF Storefront into a predictive strategist, deepening 
         title: 'Unified Shopping — Browsing & Search',
         description: "This section focuses on how users browse and discover items. The navigation is designed to feel familiar because when users don't have to learn a new system, they engage more. That sense of familiarity ultimately drives measurable program lift, even as the platform scales effortlessly beneath it.",
         videos: [
-            { id: 'video-browsing', label: 'Video: Navigating and Filtering for Items', shortLabel: 'Browsing', embedUrl: 'https://www.loom.com/embed/dae78cb99588495995f9aeae605d88f5' }
+            { id: 'video-browsing', label: 'Video: Navigating and Filtering for Items', shortLabel: 'Browsing', embedUrl: '/videos/Navigation.mp4' }
         ],
         details: [
             { title: 'Intuitive Navigation & Filtering', description: 'A familiar navigation structure allows users to intuitively filter, sort, and search across everything from print to promo to digital assets.', icon: <GridIcon /> },
@@ -126,13 +126,13 @@ Crucially, the platform analyzes every interaction—every search, click, and ev
         title: 'Unified Shopping — Asset Types',
         description: "The platform's true power lies in handling diverse product classes—physical products, kits, rentals, customizable items, and pure digital assets—all handled in a single cart, through one platform experience. This dramatically improves the user experience, which is key for platform adoption.",
         videos: [
-            { id: 'video-static', label: 'Video: Shopping for a Static Item', shortLabel: 'Static Item', embedUrl: 'https://www.loom.com/embed/7838e908e21c470b957e2a6dd6cc8f13' },
-            { id: 'video-preset-kits', label: 'Video: Exploring Preset Kits (e.g., Docebo Integration)', shortLabel: 'Preset Kits', embedUrl: 'https://www.loom.com/embed/4e5d1bab67ac4865958e831cb5fff004' },
-            { id: 'video-dynamic-kits', label: 'Video: Exploring Dynamic Kits', shortLabel: 'Dynamic Kits', embedUrl: 'https://www.loom.com/embed/2779fc2b12e24fbe973554843c92f219' },
-            { id: 'video-fixed-price-kits', label: 'Video: Exploring Fixed Priced Dynamic Kits', shortLabel: 'Fixed Price Kits', embedUrl: 'https://www.loom.com/embed/b2f49c8f1de5468f9bf0d0fabda4a8fb' },
-            { id: 'video-booth', label: 'Video: Booth-in-a-Box', shortLabel: 'Booth-in-a-Box', embedUrl: 'https://www.loom.com/embed/32010fa666034319a5d5d2dfa7e0a97c' },
-            { id: 'video-3d', label: 'Video: JBL Speaker with 3D Viewer', shortLabel: '3D Viewer', embedUrl: 'https://www.loom.com/embed/e5d01d7fdbd549e7be6c9479eb6892d9' },
-            { id: 'video-digital-download', label: 'Video: Accessing Digital Downloads', shortLabel: 'Digital Downloads', embedUrl: 'https://www.loom.com/embed/acd439b5b38e456b8b5e6e06a884cca8' },
+            { id: 'video-static', label: 'Video: Shopping for a Static Item', shortLabel: 'Static Item', embedUrl: '/videos/03_The Essentials_Static_Item.mp4' },
+            { id: 'video-preset-kits', label: 'Video: Exploring Preset Kits (e.g., Docebo Integration)', shortLabel: 'Preset Kits', embedUrl: '/videos/03_The Essentials_Preset_Kits.mp4' },
+            { id: 'video-dynamic-kits', label: 'Video: Exploring Dynamic Kits', shortLabel: 'Dynamic Kits', embedUrl: '/videos/03_The Essentials_Dynamic_Kits.mp4' },
+            { id: 'video-fixed-price-kits', label: 'Video: Exploring Fixed Priced Dynamic Kits', shortLabel: 'Fixed Price Kits', embedUrl: '/videos/03_The Essentials_Fixed_Priced_Kits.mp4' },
+            { id: 'video-booth', label: 'Video: Booth-in-a-Box', shortLabel: 'Booth-in-a-Box', embedUrl: '/videos/03_The Essentials_Booth-in-a-Box.mp4' },
+            { id: 'video-3d', label: 'Video: JBL Speaker with 3D Viewer', shortLabel: '3D Viewer', embedUrl: '/videos/03_The Essentials_3D_Viewer.mp4' },
+            { id: 'video-digital-download', label: 'Video: Accessing Digital Downloads', shortLabel: 'Digital Downloads', embedUrl: '/videos/03_The Essentials_Digital Downloads.mp4' },
         ],
         details: [
             { title: 'One Cart, All Assets', description: 'Physical products, digital downloads, rentals, and customizable items all coexist in a single, unified shopping cart for a streamlined checkout.', icon: <CartIcon /> },
@@ -153,8 +153,8 @@ Crucially, the platform analyzes every interaction—every search, click, and ev
         title: 'Co-branding, Customization & Approvals',
         description: "Our customization engine is streamlined for everyday use, empowering users to stay on brand without slowing down. For any co-branded item, the workflow automatically routes it for approval. It's an elegant balance between control and speed, ensuring every piece is approved and on-brand, but eliminating the manual bottlenecks that slow things down.",
         videos: [
-            { id: 'video-custom-promo', label: 'Video: Customizing a Zip-Up Sweater', shortLabel: 'Promo Item', embedUrl: 'https://www.loom.com/embed/663c9949875c467d960fd03139f68b04' },
-            { id: 'video-custom-digital', label: 'Video: Customizing an Instagram Reel', shortLabel: 'Digital Asset', embedUrl: 'https://www.loom.com/embed/f0104aaa622d40fd95abf8a9710aca45' }
+            { id: 'video-custom-promo', label: 'Video: Customizing a Zip-Up Sweater', shortLabel: 'Promo Item', embedUrl: '/videos/04_The Essentials_Promo Item.mp4' },
+            { id: 'video-custom-digital', label: 'Video: Customizing an Instagram Reel', shortLabel: 'Digital Asset', embedUrl: '/videos/04_The Essentials_Digital Asset.mp4' }
         ],
         details: [
             { title: 'Automated Quality Checks', description: 'Uploading a low-resolution logo automatically triggers a quality warning, prompting the user to replace it with a high-resolution version.', icon: <ShieldIcon /> },
@@ -167,7 +167,7 @@ Crucially, the platform analyzes every interaction—every search, click, and ev
                 id: 'video-advanced-customization',
                 label: 'Video: Future State: Advanced Customization',
                 shortLabel: 'Advanced Customization',
-                embedUrl: 'https://www.loom.com/embed/fae799168b394d0e94c1658a3c31ea53',
+                embedUrl: '/videos/04_Unlock_More_Advanced_Customization.mp4',
             },
         ],
         enhancements: [
@@ -183,8 +183,8 @@ Crucially, the platform analyzes every interaction—every search, click, and ev
         title: 'Unified Multi-Tender Checkout & Returns',
         description: "The checkout is engineered to be instantly familiar, mirroring the intuitive design of modern e-commerce to eliminate any learning curve. Beneath this simplicity, it powerfully integrates GAF-specific business logic—handling rewards, multi-address shipping, budget controls, and returns in a single, unified workflow. This seamless process reduces cart abandonment and elevates the contractor experience.",
         videos: [
-            { id: 'video-checkout', label: 'Video: Checkout with Mixed Payments & Approvals', shortLabel: 'Checkout', embedUrl: 'https://www.loom.com/embed/6e71f4b253304b58bba551671e204eb2' },
-            { id: 'video-returns', label: 'Video: Initiating a Product Return', shortLabel: 'Returns', embedUrl: 'https://www.loom.com/embed/9d454923ce3b4389aa8df5706dfe0119' }
+            { id: 'video-checkout', label: 'Video: Checkout with Mixed Payments & Approvals', shortLabel: 'Checkout', embedUrl: '/videos/05_The Essentials_Checkout.mp4' },
+            { id: 'video-returns', label: 'Video: Initiating a Product Return', shortLabel: 'Returns', embedUrl: '/videos/05_The Essentials_Returns.mp4' }
         ],
         details: [
             { title: 'Multi-Tender Payments', description: "GAF's specific multi-tender payments with Co-op Dollars, Rewards Dollars, and credit cards are handled in a single transaction.", icon: <CreditCardIcon /> },
@@ -229,12 +229,12 @@ export const ADMIN_CAPABILITIES: Capability[] = [
         title: 'User & Content Management',
         description: "The admin panel empowers administrators to manage users, content, and budgets directly, enabling immediate updates. This agility allows GAF's marketing teams to adapt in real time, with the full backing of our strategic and technical support.",
         videos: [
-            { id: 'video-admin-promo-offers', label: 'Video: Managing Promotional Offers', shortLabel: 'Promo Offers', embedUrl: 'https://www.loom.com/embed/93ed0de88fc9420b8b37337b6285dcf2' }
+            { id: 'video-admin-promo-offers', label: 'Video: Managing Promotional Offers', shortLabel: 'Promo Offers', embedUrl: '/videos/06_The Essentials_Promo_Offers.mp4' }
         ],
         exploreFurtherVideos: [
-            { id: 'video-admin-products', label: 'Video: How to Set Up New Products', shortLabel: 'Add New Product', embedUrl: 'https://www.loom.com/embed/cb2126e56795488a970ac252aaf7d57f' },
-            { id: 'video-sidekick-bogo', label: 'Video: AI-Generated BOGO Promotion', shortLabel: 'AI Marketing', embedUrl: 'https://www.loom.com/embed/de611111c854244729e0ba0cefd97304e' },
-            { id: 'video-po-management', label: 'Video: Purchase Order Management', shortLabel: 'PO Management', embedUrl: 'https://www.loom.com/embed/6571d80a8d48479d86de088d244c70d0' }
+            { id: 'video-admin-products', label: 'Video: How to Set Up New Products', shortLabel: 'Add New Product', embedUrl: '/videos/06_The Unlock_More_Add Products.mp4' },
+            { id: 'video-sidekick-bogo', label: 'Video: AI-Generated BOGO Promotion', shortLabel: 'AI Marketing', embedUrl: '/videos/06_Unlock_More_AI Marketing.mp4' },
+            { id: 'video-po-management', label: 'Video: Purchase Order Management', shortLabel: 'PO Management', embedUrl: '/videos/06_Unlock_More_PO_Management.mp4' }
         ],
         details: [
             { title: 'Direct Content Updates', description: 'Administrators can perform simple text and image edits on promotional banners and publish them instantly to the live site.', icon: <EditIcon /> },
@@ -251,7 +251,7 @@ export const ADMIN_CAPABILITIES: Capability[] = [
         title: 'Budget Management',
         description: "This feature provides GAF with direct, real-time control over program spending. Budgets can be assigned by user, region, or role, and changes take effect immediately — no refresh required. These values can also flow automatically from the Integration Layer, syncing available GAF Bucks or Co-op Dollars.",
         videos: [
-            { id: 'video-admin-budgets', label: 'Video: Budget Management', shortLabel: 'Budget Management', embedUrl: 'https://www.loom.com/embed/1f0a6aa7aa57441da2c169441dc3256c' }
+            { id: 'video-admin-budgets', label: 'Video: Budget Management', shortLabel: 'Budget Management', embedUrl: '/videos/07_Budget Management.mp4' }
         ],
         details: [
             { title: 'Real-Time Control', description: 'Assign a budget limit (e.g., $1,000) to a contractor, and the change takes effect instantly, preventing budget overruns.', icon: <UserIcon /> },
@@ -264,10 +264,10 @@ export const ADMIN_CAPABILITIES: Capability[] = [
         title: 'Approvals & Workflows',
         description: "The platform's intelligent approval workflows provide robust brand and budget control without creating bottlenecks. From co-branded assets to budget overrides and social media content, the system automates the routing, review, and notification process, ensuring speed and compliance go hand-in-hand.",
         videos: [
-            { id: 'video-approval-workflows', label: 'Video: Approving Co-branded or Over-Budget Items', shortLabel: 'Approvals', embedUrl: 'https://www.loom.com/embed/c13ed052d6284044be289c3af42db048' }
+            { id: 'video-approval-workflows', label: 'Video: Approving Co-branded or Over-Budget Items', shortLabel: 'Approvals', embedUrl: '/videos/08_The_Essentials_Approvals.mp4' }
         ],
         exploreFurtherVideos: [
-            { id: 'video-admin-flow', label: 'Video: Automating Workflows with Flow', shortLabel: 'Flow Automation', embedUrl: 'https://www.loom.com/embed/a54ebb2a03c54b5cb0336e6653ccf77c' }
+            { id: 'video-admin-flow', label: 'Video: Automating Workflows with Flow', shortLabel: 'Flow Automation', embedUrl: '/videos/08_Unlock More- Flow Automation.mp4' }
         ],
         details: [
             { title: 'Over-Budget Order Flagging', description: 'A dashboard widget immediately flags any orders that have exceeded a user\'s or department\'s budget, routing them for approval.', icon: <ShieldIcon /> },
@@ -280,12 +280,12 @@ export const ADMIN_CAPABILITIES: Capability[] = [
         title: 'Analytics & Reporting',
         description: "The platform provides a comprehensive analytics suite, featuring both robust, integrated reporting for real-time operational insights and a seamless data flow into Tableau via the DG3 Integration Layer. This dual approach ensures that GAF stakeholders have immediate access to both day-to-day transactional data and high-level business intelligence, all without switching contexts.",
         videos: [
-            { id: 'video-tableau-analytics', label: 'Video: Tableau Reporting and Analytics', shortLabel: 'Tableau Analytics', embedUrl: 'https://www.loom.com/embed/ca5bd70da0ca4b28832b3a3c35da499d' },
-            { id: 'video-integrated-analytics', label: 'Video: Integrated Reporting and Analytics', shortLabel: 'Integrated Analytics', embedUrl: 'https://www.loom.com/embed/e8c659bda7ed4d85af956ecd56a06d0e' }
+            { id: 'video-tableau-analytics', label: 'Video: Tableau Reporting and Analytics', shortLabel: 'Tableau Analytics', embedUrl: '/videos/09_The essentials- Tableau Analytics.mp4' },
+            { id: 'video-integrated-analytics', label: 'Video: Integrated Reporting and Analytics', shortLabel: 'Integrated Analytics', embedUrl: '/videos/09_The Essentials_Integrated_Analytics.mp4' }
         ],
         exploreFurtherVideos: [
-            { id: 'video-sidekick-report', label: 'Video: AI-Generated Restock Report', shortLabel: 'AI Reporting', embedUrl: 'https://www.loom.com/embed/d77270f0fdbd4e5b93c207ea3c9a49e6' },
-            { id: 'video-sidekick-skills', label: 'Video: Using AI Skills for Custom Tasks', shortLabel: 'AI Skills', embedUrl: 'https://www.loom.com/embed/f00810d17ef044c08a590e9b6020c0fa' }
+            { id: 'video-sidekick-report', label: 'Video: AI-Generated Restock Report', shortLabel: 'AI Reporting', embedUrl: '/videos/09_Unlock More- AI Reporting.mp4' },
+            { id: 'video-sidekick-skills', label: 'Video: Using AI Skills for Custom Tasks', shortLabel: 'AI Skills', embedUrl: '/videos/09_Unlock More- AI Skills.mp4' }
         ],
         details: [
             { title: 'Tableau Dashboards', description: "View KPIs like Total Orders, Average Order Value, and Top Selling Products. Drill down into a specific region to see how the data filters dynamically.", icon: <DataIcon /> },
@@ -612,7 +612,7 @@ This allows contractors to use any combination of Rewards Bucks and credit-card 
     },
     {
         id: 'qna-admin-self-service',
-        question: 'Admin Self-Service & Control',
+        question: 'Admin Self-Service and Control',
         answer: (
             <div>
                 <QnaParagraph>Shopify Plus, supported by the DG3 Integration Layer, provides GAF administrators with <QnaBold>comprehensive, self-service control</QnaBold> across all major functions of the platform—products, users, content, workflows, and approvals. Every standard administrative action can be completed instantly and independently, without waiting for vendor intervention.</QnaParagraph>
@@ -868,7 +868,7 @@ This allows contractors to use any combination of Rewards Bucks and credit-card 
     },
     {
         id: 'qna-pricing-allocation',
-        question: 'Pricing & Task Allocation',
+        question: 'Pricing And Task Allocation',
         answer: (
             <div>
                 <QnaParagraph>Our cost is fully transparent. We have proposed a single end-to-end annual (billed monthly) support fee to ensure end-to-end success in the platform across all three layers of the system. This includes an end-to-end program administrator and one dedicated development resource to ensure GAF system integrations and vendor system integrations with the WS02 layer and WS02 later integration with Shopify. The fees for these two resources are $130,000 and $40,000 annually (or $10,833 and $3,333 monthly). This dedicated monthly retainer across all activities for the platform is based on our current knowledge of GAF operations. It includes all interfacing with GAF administrators, oversight of DG3 internal resources, management of linkages between the systems and actual operational execution of the products and services. This replaces any current support and maintenance fees charged by DG3 to GAF. There are no additional fees or hidden fees. DG3 assumes full responsibility for delivering against GAF requirements without additional fees.</QnaParagraph>
@@ -885,7 +885,7 @@ export const MAIN_DEMO_VIDEO: VideoDetail = {
   id: 'main-demo-video',
   label: 'Comprehensive Video Walkthrough (34 min)',
   shortLabel: 'Full Demo',
-  embedUrl: 'https://www.loom.com/embed/79f1615ec9c34f869acddad5ce3fe2cc'
+  embedUrl: '/videos/The_Complete_Demonstration.mp4'
 };
 
 export const MOBILE_CONTRACTOR_VIDEOS: VideoDetail[] = [

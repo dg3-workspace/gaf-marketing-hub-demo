@@ -38,15 +38,28 @@ const EnhancementDisplay: React.FC<{ enhancement: CapabilityDetail }> = ({ enhan
 };
 
 const EmbeddedVideo: React.FC<{ url: string }> = ({ url }) => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    console.log('EmbeddedVideo: URL changed to', url);
+    if (videoRef.current) {
+      console.log('EmbeddedVideo: Setting video src and loading...');
+      videoRef.current.src = url;
+      videoRef.current.load();
+    }
+  }, [url]);
+
   return (
-    <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-      <iframe
-        key={url}
-        src={url}
-        frameBorder="0"
-        allowFullScreen
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-      ></iframe>
+    <div className="aspect-video w-full">
+      <video
+        ref={videoRef}
+        className="w-full h-full"
+        controls
+        controlsList="nodownload"
+        playsInline
+      >
+        Your browser does not support the video tag.
+      </video>
     </div>
   );
 };
@@ -102,7 +115,10 @@ const CapabilityModule: React.FC<{ capability: Capability; index: number }> = ({
               {capability.videos.map((video) => (
                 <button
                   key={video.id}
-                  onClick={() => setActiveVideo(video)}
+                  onClick={() => {
+                    console.log('Button clicked, setting activeVideo to:', video);
+                    setActiveVideo(video);
+                  }}
                   className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 transform hover:scale-105 ${
                     activeVideo.id === video.id
                       ? 'bg-brand-green text-white shadow-lg'
