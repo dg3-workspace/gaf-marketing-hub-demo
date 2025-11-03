@@ -38,7 +38,20 @@ export const ExpandableDetail: React.FC<ExpandableDetailProps> = ({ detail }) =>
       >
         <div className="overflow-hidden">
             <div className="bg-white p-4 pt-0 text-gray-600 text-sm leading-relaxed">
-              <p className="border-l-2 border-brand-green pl-4">{detail.description}</p>
+              <div className="border-l-2 border-brand-green pl-4 space-y-3">
+                {detail.description.split('\n').map((paragraph, index) => {
+                    const trimmed = paragraph.trim();
+                    if (!trimmed) return null;
+                    
+                    const isSubheading = trimmed.endsWith(':');
+
+                    if (isSubheading) {
+                        return <p key={index} className="font-semibold text-gray-800 mt-2">{trimmed}</p>;
+                    }
+                    
+                    return <p key={index}>{trimmed}</p>;
+                })}
+              </div>
             </div>
         </div>
       </div>

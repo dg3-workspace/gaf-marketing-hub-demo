@@ -1,8 +1,9 @@
 
+
 import React, { useState } from 'react';
 import { Modal } from '../ui/Modal';
 import { VideoPlayerModal } from '../ui/VideoPlayerModal';
-import { END_USER_CAPABILITIES, ADMIN_CAPABILITIES } from '../../constants';
+import { END_USER_CAPABILITIES, ADMIN_CAPABILITIES, MAIN_DEMO_VIDEO, MOBILE_CONTRACTOR_VIDEOS, MOBILE_ADMIN_CAPABILITIES } from '../../constants';
 import type { Capability, VideoDetail } from '../../types';
 
 interface VideoLibraryModalProps {
@@ -15,7 +16,7 @@ const PlayIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const SparklesIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
         <path d="m12 3-1.5 5-5-1.5L7 12l-1.5 5 5 1.5L12 21l1.5-5 5 1.5L17 12l1.5-5-5-1.5Z"/>
     </svg>
 );
@@ -24,7 +25,7 @@ const VideoLibraryContent: React.FC<{
   onPlayVideo: (video: VideoDetail) => void;
 }> = ({ onPlayVideo }) => {
     
-    const renderCapability = (capability: Capability, index: number, isEndUser: boolean) => {
+    const renderCapability = (capability: Capability, index: number, sectionNumberPrefix: number) => {
         const hasEssentials = capability.videos && capability.videos.length > 0;
         const hasUnlockMore = capability.exploreFurtherVideos && capability.exploreFurtherVideos.length > 0;
 
@@ -32,7 +33,7 @@ const VideoLibraryContent: React.FC<{
             return null;
         }
         
-        const sectionNumber = isEndUser ? index + 1 : index + 1 + END_USER_CAPABILITIES.length;
+        const sectionNumber = sectionNumberPrefix + index + 1;
         const formattedNumber = sectionNumber.toString().padStart(2, '0');
 
         return (
@@ -89,12 +90,55 @@ const VideoLibraryContent: React.FC<{
     return (
         <div>
             <div className="mb-12">
-                <h3 className="text-2xl font-bold text-brand-gray mb-6 pb-4 border-b-2 border-brand-green">Part 1: End-User Experience</h3>
-                {END_USER_CAPABILITIES.map((cap, index) => renderCapability(cap, index, true))}
+                <h3 className="text-2xl font-bold text-brand-gray mb-6 pb-4 border-b-2 border-brand-green">Main Demonstration</h3>
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 h-full">
+                    <ul className="space-y-2">
+                        <li key={MAIN_DEMO_VIDEO.id}>
+                            <button 
+                                onClick={() => onPlayVideo(MAIN_DEMO_VIDEO)}
+                                className="w-full text-left flex items-center gap-3 px-3 py-2 rounded-md transition-all duration-200 text-gray-700 bg-white hover:bg-gray-100 hover:text-brand-gray group border border-gray-200"
+                            >
+                                <PlayIcon className="w-4 h-4 text-brand-green flex-shrink-0 transition-transform group-hover:scale-110" />
+                                <span className="flex-1">{MAIN_DEMO_VIDEO.label}</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
+
+            <div className="mb-12">
+                <h3 className="text-2xl font-bold text-brand-gray mb-6 pb-4 border-b-2 border-brand-green">End-User Experience</h3>
+                {END_USER_CAPABILITIES.map((cap, index) => renderCapability(cap, index, 0))}
+            </div>
+
+            <div className="mb-12">
+                <h3 className="text-2xl font-bold text-brand-gray mb-6 pb-4 border-b-2 border-brand-green">Admin & Analytics</h3>
+                {ADMIN_CAPABILITIES.map((cap, index) => renderCapability(cap, index, END_USER_CAPABILITIES.length))}
+            </div>
+
             <div>
-                <h3 className="text-2xl font-bold text-brand-gray mb-6 pb-4 border-b-2 border-brand-green">Part 2: Admin & Analytics</h3>
-                {ADMIN_CAPABILITIES.map((cap, index) => renderCapability(cap, index, false))}
+                 <h3 className="text-2xl font-bold text-brand-gray mb-6 pb-4 border-b-2 border-brand-green">Mobile Experience</h3>
+                <div className="mb-8">
+                    <h4 className="text-xl font-bold text-brand-green mb-4 pb-2 border-b border-gray-200 flex items-center gap-3">
+                        <span>Contractor & TM Experience</span>
+                    </h4>
+                    <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 h-full">
+                        <ul className="space-y-2">
+                           {MOBILE_CONTRACTOR_VIDEOS.map(video => (
+                               <li key={video.id}>
+                                   <button 
+                                        onClick={() => onPlayVideo(video)}
+                                        className="w-full text-left flex items-center gap-3 px-3 py-2 rounded-md transition-all duration-200 text-gray-700 bg-white hover:bg-gray-100 hover:text-brand-gray group border border-gray-200"
+                                    >
+                                       <PlayIcon className="w-4 h-4 text-brand-green flex-shrink-0 transition-transform group-hover:scale-110" />
+                                       <span className="flex-1">{video.label.replace('Mobile: ', '')}</span>
+                                   </button>
+                               </li>
+                           ))}
+                        </ul>
+                    </div>
+                </div>
+                {MOBILE_ADMIN_CAPABILITIES.map((cap, index) => renderCapability(cap, index, END_USER_CAPABILITIES.length + ADMIN_CAPABILITIES.length))}
             </div>
         </div>
     );

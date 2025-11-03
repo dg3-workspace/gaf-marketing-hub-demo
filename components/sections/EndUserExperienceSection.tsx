@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { END_USER_CAPABILITIES } from '../../constants';
 import { VideoPlaceholder } from '../ui/VideoPlaceholder';
@@ -209,7 +210,7 @@ export const EndUserExperienceSection: React.FC = () => {
   return (
     <section>
       <SectionHeader 
-        title="Part 1: The End-User Experience"
+        title="The End-User Experience"
         subtitle="A guided walkthrough of the platform's core features from the perspective of a contractor and territory manager."
       />
       <div className="bg-white py-20 px-8">

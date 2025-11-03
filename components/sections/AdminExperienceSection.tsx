@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ADMIN_CAPABILITIES, END_USER_CAPABILITIES } from '../../constants';
 import { VideoPlaceholder } from '../ui/VideoPlaceholder';
@@ -208,7 +209,7 @@ export const AdminExperienceSection: React.FC = () => {
   return (
     <section>
       <SectionHeader 
-        title="Part 2: The Administrator Experience & Analytics"
+        title="The Administrator Experience & Analytics"
         subtitle="Demonstrating the tools GAF will use to manage the platform, gain insights, and leverage AI without vendor intervention."
       />
       <div className="bg-patterned py-20 px-8">
